@@ -1,289 +1,169 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
 import pandas as pd
+from streamlit_option_menu import option_menu
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+import numpy as np
+# import pickle
 
-##Functional Programming
+# with open("rf_churn_model.pkl", "rb") as f:
+#     model = pickle.load(f)
+df = pd.read_csv("D:\PASD\Clean_Data_Restaurant_Final.csv")
+def rf():
+    drop_cols = ['Unnamed: 0', 'Order ID', 'Order Date', 'Last Visit Date', 'Item', 'Customer ID']
+    df.drop(columns=drop_cols, inplace=True)
+    df['Bulan'] = df['Bulan'].str.extract(r'-(\d{2})').astype(int)
+    df['Bulan'] = np.ceil(df['Bulan'] / 3).astype(int)
+    encoders = {}
 
-def hitung_total_pemesanan(daftar_item):
-    total = 0
-    for i in daftar_item:
-        total += i['item'].harga* i['jumlah']
-    return total
+    for col in ['Category', 'Payment Method', 'Churn']:
+        le = LabelEncoder()
+        df[col] = le.fit_transform(df[col])
+        encoders[col] = le  # Simpan encoder untuk tiap kolom
 
-def analisis_tren_item(data_penjualan):
-    penjualan ={}
-    for i in data_penjualan:
-        nama = i['item'].nama
-        jum = i['jumlah']
-        if nama in penjualan:
-            penjualan[nama] += jum
-        else:
-            penjualan[nama] = jum
-    
-    item_terlaris = max(penjualan, key=penjualan.get)
-    return item_terlaris
+rf()
+# Salin data asli
+data = df.copy()
 
-#Object Oriented Programming
+# Pisahkan fitur dan target
+X = data.drop(columns='Churn')
+y = data['Churn'].astype(int)
 
-class itemMenu:
-    def __init__(self,nama,jenis,harga,stock):
-        self.nama=nama
-        self.jenis=jenis
-        self.harga=harga
-        self.stok=stock
-    
-    def tambahStok(self,jumlah):
-        self.stok += jumlah
-        st.write(f"Stok {self.nama} bertambah {jumlah}. Total: {self.stok}")
-    
-    def kurangiStok(self,jumlah):
-        if self.stok >= jumlah:
-            self.stok -= jumlah
-            st.write(f"Stok {self.nama} berkurang {jumlah}. Stok sekarang: {self.stok}")
-            return True
-        else:
-            st.write("Stok Tidak Cukup!, (Tersedia: {self.stock}, Diminta: {jumlah})")
-            return False
-    
-class Pemesanan:
-    def __init__(self):
-        self.daftar_item =[]
+# Bagi data menjadi data train dan test
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 
-    def tambah_item(self, item, jumlah):
-        if item.stok >= jumlah:
-            self.daftar_item.append({'item':item, 'jumlah':jumlah})
-            st.write(f"{item.nama} sejumlah {jumlah} ditambahkan ke pesanan")
-            return True
-        else:
-            st.write(f"Tidak dapat menambahkan {item.nama}")
-            return False
-        
-    def hitung_total(self):
-        total = 0
-        for i in self.daftar_item:
-            total += i['item'].harga * i['jumlah']
-        return total
+def rf_model():
+    from sklearn.model_selection import GridSearchCV
+    rf = RandomForestClassifier(random_state=42, class_weight='balanced')
 
-    def tampilkan_detail(self):
-        st.write('\n--- Detail Pemesanan ---')
-        if not self.daftar_item:
-            st.write("Pemesanan Kosong\n")
-            return 
-        for i in self.daftar_item:
-            item = i['item']
-            jumlah = i['jumlah']
-            st.write(f'{item.nama} x {jumlah} = Rp.{item.harga * jumlah}')
-        
-        total = self.hitung_total()
-        st.write('-'*10)
-        st.write(f"Total Pembelian: Rp.{total}")
-        st.write('-'*10)
+    param_grid = {
+        'n_estimators': [100, 200, 300],
+        'max_depth': [None, 10, 20, 30],
+        'min_samples_split': [2, 5, 10],
+        'min_samples_leaf': [1, 2, 4]
+    }
 
-class Pembayaran:
-    def __init__(self, metode_pembayaran):
-        self.metode = metode_pembayaran
-
-    def proses_pembayaran(self,total):
-        st.write(f"Pembayaran sebesar Rp.{total} menggunakan {self.metode} berhasil!")
-        return True
-        
-    def cetak_struk(self,pemesanan):
-        st.write("\n====== STRUK PEMBELIAN ======")
-        pemesanan.tampilkan_detail()
-        st.write(f"Metode Pembayaran: {self.metode}")
-        st.write("="*27)
-
-class ManajerStok:
-    def update_stok(self, item_obj, jumlah, operasi):
-        if operasi == "kurangi":
-            return item_obj.kurangiStok(jumlah)
-        elif operasi == "tambah":
-            item_obj.tambahStok(jumlah)
-            return True
-        else:
-            st.write(f"Operasi stok tidak valid")
-            return False
-
-class LaporanPenjualan:
-    def __init__(self):
-        self.data_penjualan = {}
-
-    def catat_penjualan(self,pemesanan):
-        for i in pemesanan.daftar_item:
-            nama = i['item'].nama
-            jumlah = i['jumlah']
-            pendapatan = i['item'].harga * jumlah
-
-            if nama in self.data_penjualan:
-                self.data_penjualan[nama]['jumlah'] += i['jumlah']
-                self.data_penjualan[nama]['pendapatan'] += pendapatan
-            else:
-                self.data_penjualan[nama] = {'jumlah':i['jumlah'], 'pendapatan':pendapatan}
-        st.write("Pemesanan telah dicatat\n")
-
-    def tampilkan_laporan(self):
-        st.write("\n====== LAPORAN PENJUALAN ======")
-        if not self.data_penjualan:
-            st.write("Belum ada data penjualan")
-            st.write('='*27)
-            return
-    
-        total_semua_penjualan = 0
-        total_pendapatan = 0
-
-        for nama, data in self.data_penjualan.items():
-            st.write(f"{nama} - Terjual:{data['jumlah']}| Pendapatan: Rp{data['pendapatan']}")
-            total_semua_penjualan += data['jumlah']
-            total_pendapatan += data['pendapatan']
-        st.write('-'*27)
-        st.write(f"Total Item Terjual: {total_semua_penjualan}")
-        st.write(f"Total Pendapatan: Rp.{total_pendapatan}")
-        st.write('='*27)
-
-    def analisis_tren_item(self):
-        if not self.data_penjualan:
-            return "Belum ada data penjualan"
-        
-        penjualan_per_item = {nama: data['jumlah'] for nama, data in self.data_penjualan.items()}
-
-        if not penjualan_per_item:
-            return "Tidak ada item yang terjual"
-        
-        item_terlaris = max(penjualan_per_item, key=penjualan_per_item.get)
-        st.write(f"item Terlaris: {item_terlaris}, terjual: {penjualan_per_item[item_terlaris]}")
-        return item_terlaris
-    
-
-@st.cache_data # Cache data agar tidak di-load ulang setiap rerun
-def load_data(file_path):
-
-    daftar_objek_item = {}
-    try:
-        df_menu = pd.read_csv(file_path)
-        st.write("Berhasil Dimuat")
-
-        for index, row in df_menu.iterrows():
-            nama = str(row['Item'])
-            jenis = str(row['Category'])
-
-            #Konversi harga menjadi numerikal
-            try:
-                harga_str = str(row['Price']).replace('.',''.replace(',','.'))
-                harga = float(harga_str)
-            except:
-                st.warning("Gagal Konversi harga untuk item {nama}")
-                harga = 0.0
-
-            #Konversi Stok 
-            try: 
-                stok = int(row['Quantity'])
-            except ValueError:
-                st.warning("Gagal Konversi Stok untuk item {nama}")
-
-
-            #Objek itemMenu baru
-            item = itemMenu(
-                nama=nama,
-                jenis=jenis,
-                harga=harga,
-                stock=stok
-            )
-
-            daftar_objek_item[nama.lower()] = item
-        
-        st.info(f"Berhasil membuat {len(daftar_objek_item)} objek itemMenu dari data.")
-        return daftar_objek_item
-    
-    except FileNotFoundError:
-        st.error(f"ERROR: File tidak ditemukan")
-        return None
-    except KeyError as e:
-        st.error(f"ERROR: Kolom {e} tidak ditemukan")
-        return None
-    except Exception as e:
-        st.error(f"ERROR: Terjadi kesalahan saat memuat data: {e}")
-        return None
-
-url_menu = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/Clean_Data_Restaurant_Final.csv'
-menu_restoran = load_data(url_menu)
-
-# Inisialisasi objek di session state agar persisten
-if 'pesanan_sekarang' not in st.session_state:
-    st.session_state.pesanan_sekarang = Pemesanan()
-if 'laporan_penjualan_global' not in st.session_state:
-    st.session_state.laporan_penjualan_global = LaporanPenjualan()
-if 'manajer_stok_obj' not in st.session_state: # Instance untuk ManajerStok (jika ada state di dalamnya)
-    st.session_state.manajer_stok_obj = ManajerStok()
-
-def data_pesanan():
-    #with st.form(key='add_order_form'):
-    customer_id = st.text_input("Masukkan ID Customer:")
-    item_nama = st.text_input("Masukkan Nama Item:").lower()
-    quantity = st.number_input("Masukkan Jumlah:")
-    date = st.date_input("Masukkan Tanggal:")
-    method = st.selectbox("Pilih Metode Pembayaran:", ["Credit Card", "Cash", "Digital Wallet"])
-
-    if st.button("Submit"):
-        if item_nama in menu_restoran:
-            item_obj = menu_restoran[item_nama]
-            try:
-                if quantity <= 0:
-                    st.write("Jumlah harus lebih dari 0.")
-                    pass
-                if pesanan_sekarang.tambah_item(item_obj, quantity):
-                    pass
-                else:
-                    pass
-            except ValueError:
-                st.write("Jumlah tidak valid, masukkan angka")
-        else:
-            st.warning("Item tidak ditemukan, cek menu item")
-
-
-def transaksi():
-    st.title("Data Transaksi Customer")
-    st.write("Selamat masukan detail pesanan.")
-    # Tampilkan menu sebelum input
-    tampil_menu_btn = st.button("Tampilkan Daftar Menu", help="Klik untuk melihat menu yang tersedia.")
-    if tampil_menu_btn:
-        st.subheader("DAFTAR MENU RESTORAN")
-        if not menu_restoran:
-            st.warning("Menu Kosong")
-        else:
-            for item_name, item_obj in menu_restoran.items():
-                st.write(f"{item_obj.nama:<20} ({item_obj.jenis:<10}) - Rp{item_obj.harga:10,.2f} - Stok: {item_obj.stok:<5}")
-        st.write('='*80)
-        data_pesanan()
-
-
-def laporan_penjualan():
-    pass
-
-
-# Navigasi Menu
-with st.sidebar:
-    selected = option_menu(
-        menu_title="Menu Utama",
-        options=["Transaksi", "Laporan Penjualan", "Manajemen Produk", "Analisis Tren Produk"],        
-        icons=["clipboard-data", "clipboard-data", "clipboard-data"],
-        menu_icon="cast",
-        default_index=0,
-        orientation="vertical",
-        styles={
-            "container": {"padding": "0 !important", "background-color": "#f5f5f5"},
-            "icon": {"color": "orange", "font-size": "25px"},
-            "nav-link": {"font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-            "nav-link-selected": {"background-color": "purple"},
-        }
+    grid_search = GridSearchCV(
+        estimator=rf,
+        param_grid=param_grid,
+        cv=5,  # 5-fold cross validation
+        n_jobs=-1,
+        verbose=1,
+        scoring='f1_weighted'
     )
-if selected == "Transaksi":
-    transaksi()
-elif selected == "Laporan Penjualan":
-    laporan_penjualan()
-elif selected == "Manajer Produk":
-    manajemen_produk()
-elif selected == "Analisis Tren Produk":
-    analisis()
+
+    # Jalankan grid search
+    grid_search.fit(X_train, y_train)
+    # Cetak hasil terbaik
+    print("Best Parameters:", grid_search.best_params_)
+    print("\nBest Score:", grid_search.best_score_)
+
+    # Evaluasi model terbaik di test set
+    best_model = grid_search.best_estimator_
+    y_pred = best_model.predict(X_test)
+
+    return best_model
+
+best_model = rf_model()
+
+########################################
+
+st.set_page_config(page_title="KasirKita", layout="wide")
+st.title("Analisis KasirKita")
+st.write("Selamat datang di aplikasi KasirKita. Silahkan Upload file untuk melihat hasil analisis.")
+
+uploaded_file = st.file_uploader("Pilih file CSV", type="csv")
+# Membaca CSV menjadi DataFrame
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+    rf()
+    if 'Churn' in df.columns:
+        df = df.drop(columns=['Churn'])
+    
+    st.session_state['df'] = df
+    st.success("File berhasil dibaca!")
+
+    with st.sidebar:
+        selected = option_menu(
+            menu_title="Menu Utama",
+            options=["Laporan Penjualan", "Analisis Tren Produk"],        
+            icons=["clipboard-data", "clipboard-data"],
+            menu_icon="cast",
+            default_index=0,
+            orientation="vertical",
+            styles={
+                "container": {"padding": "0 !important", "background-color": "#f5f5f5"},
+                "icon": {"color": "orange", "font-size": "25px"},
+                "nav-link": {"font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+                "nav-link-selected": {"background-color": "purple"},
+            }
+        )
+    # Tampilan berdasarkan menu
+    if selected == "Laporan Penjualan":
+        st.subheader("Laporan Penjualan")
+        st.dataframe(df)
+
+        # Total pendapatan
+        if 'Order Total' in df.columns:
+            total = df['Order Total'].sum()
+            st.metric("Total Pendapatan", f"Rp {total:,.0f}")
+        else:
+            st.warning("Kolom 'Order Total' tidak ditemukan.")
+        
+        st.subheader("Prediksi Churn")
+        prediction = best_model.predict(df)
+
+        df['Churn_Predicted'] = prediction
+
+        total = len(prediction)
+        churn_count = sum(prediction == 1)
+        not_churn_count = sum(prediction == 0)
+
+        churn_percent = churn_count / total * 100
+        not_churn_percent = not_churn_count / total * 100
+
+        # Tampilkan hasil
+        st.write(f"Total data: {total}")
+        st.write(f"Jumlah pelanggan **churn**: {churn_count} ({churn_percent:.1f}%)")
+        st.write(f"Jumlah pelanggan **tidak churn**: {not_churn_count} ({not_churn_percent:.1f}%)")
+        fig, ax = plt.subplots()
+        ax.pie(
+            [churn_percent, not_churn_percent],
+            labels=["Churn", "Tidak Churn"],
+            autopct='%1.1f%%',
+            colors=["red", "green"],
+            startangle=90
+        )
+        ax.axis("equal")
+        st.pyplot(fig)
+        if churn_percent > not_churn_percent:
+            st.write("Sayang sekali, restoran Anda memiliki sedikit pelanggan setia. Semangat dalam meningkatkan jumlah pelanggan setia. Terus perbaiki kualitas layanan kepada pelanggan Anda melalui pelayanan yang ramah dan kualitas menu yang baik.")
+        else:
+            st.write("Keren sekali, restoran Anda memiliki banyak pelanggan setia! Tingkatkan terus kualitas layanan kepada pelanggan Anda!")
+
+    elif selected == "Analisis Tren Produk":
+        st.subheader("Tren Penjualan per Produk")
+
+        if 'Item' in df.columns and 'Quantity' in df.columns:
+            produk_terlaris = df.groupby("Item")["Quantity"].sum().sort_values(ascending=False)
+            st.bar_chart(produk_terlaris)
+
+            st.subheader("Top 5 Produk Terjual")
+
+            top_produk = produk_terlaris.head(5).sort_values(ascending=True)  # ascending biar produk paling laku di bawah
+
+            fig, ax = plt.subplots(figsize=(8, 4))
+            ax.barh(top_produk.index, top_produk.values, color="purple")
+            ax.set_xlabel("Jumlah Terjual")
+            ax.set_ylabel("Produk")
+            ax.set_title("Top 5 Produk Terlaris")
+            st.pyplot(fig)
+        else:
+            st.warning("Kolom 'item' atau 'quantity' tidak ditemukan.")
+
 else:
-    st.title("Aplikasi Penjualan")
-    st.write("Selamat datang di aplikasi KasirKita. Silahkan pilih menu di samping untuk melakukan transaksi.")
+    st.info("Silakan upload file CSV terlebih dahulu untuk mengakses fitur.")
