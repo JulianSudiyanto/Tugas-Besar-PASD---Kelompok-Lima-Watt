@@ -128,7 +128,7 @@ class LaporanPenjualan:
         total_pendapatan = 0
 
         for nama, data in self.data_penjualan.items():
-            print(f"{nama} - Terjual:{data['jumlah']}| Pendapatan: Rp{data['pendapatan']}")
+            print(f"{nama} - Terjual: {data['jumlah']} | Pendapatan: Rp{data['pendapatan']}")
             total_semua_penjualan += data['jumlah']
             total_pendapatan += data['pendapatan']
         print('-'*27)
@@ -267,7 +267,6 @@ def run_app(menu_restoran):
                         print("Jumlah tidak valid, masukkan angka")
                 else:
                     print("Item tidak ditemuka, cek menu item")
-            
             if pesanan_sekarang.daftar_item:
                 pesanan_sekarang.tampilkan_detail()
                 total_bayar = pesanan_sekarang.hitung_total()
@@ -291,8 +290,29 @@ def run_app(menu_restoran):
                     print("Pesanan kosong, tidak ada pembayaran")
             else:
                 print("Tidak ada item yang ditambahkan ke pemesanan")
+        elif choice == '3':
+            print('\n--- Tambah Stok Item ---')
+            item_nama = input("Masukkan nama item yang ingin ditambahi stok: ").lower()
+            if item_nama in menu_restoran:
+                item_obj = menu_restoran[item_nama]
+                try: 
+                    jumlah_tambah = int(input(f"Masukkan jumlah stok yang ingin ditambahkan untuk {item_obj.nama}: "))
+                    if jumlah_tambah > 0:
+                        manajer_stok.update_stok(item_obj, jumlah_tambah, "tambah")
+                    else:
+                        print("Jumlah harus angka positif")
+                except ValueError:
+                    print("Jumlah harus berupa angka")
+            else:
+                print("Item tidak ditemukan")
+        elif choice == '4':
+            laporan_penjualan.tampilkan_laporan()
+        elif choice == '5':
+            laporan_penjualan.analisis_tren_item()
         elif choice == '6':
             break
+        else:
+            print("Pilihan tidak valid. Input pilihan lagi")
 
 
 if __name__ == "__main__":
