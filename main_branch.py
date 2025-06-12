@@ -156,6 +156,7 @@ class LaporanPenjualan:
 
 import pandas as pd
 import numpy as np
+import random
 
 def load_data(file_path):
 
@@ -177,10 +178,7 @@ def load_data(file_path):
                 harga = 0.0
 
             #Konversi Stok 
-            try: 
-                stok = int(row['Quantity'])
-            except ValueError:
-                print("Gagal Konversi Stok untuk item {nama}")
+            stok = random.randint(1,10)
 
 
             #Objek itemMenu baru
