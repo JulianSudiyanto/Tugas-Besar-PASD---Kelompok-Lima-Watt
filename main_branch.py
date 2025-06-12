@@ -158,6 +158,8 @@ import pandas as pd
 import numpy as np
 import random
 
+df_log_penjualan = pd.DataFrame(columns=['Timestamp', 'Item', 'Category', 'Price_per_Unit', 'Quantity_Sold', 'Total_Revenue'])
+
 def load_data(file_path):
 
     daftar_objek_item = {}
@@ -274,11 +276,23 @@ def run_app(menu_restoran):
                     pembayaran = Pembayaran(metode_bayar) 
 
                     if pembayaran.proses_pembayaran(total_bayar):
+                        timestamp_transaksi = pd.Timestamp.now()
                         for item_data in pesanan_sekarang.daftar_item:
                             item_obj = item_data['item']
                             jumlah = item_data['jumlah']
 
                             manajer_stok.update_stok(item_obj, jumlah, "kurangi")
+
+                            new_record = pd.DataFrame([{
+                                'Timestamp': timestamp_transaksi,
+                                'Item': item_obj.nama,
+                                'Category': item_obj.jenis,
+                                'Price_per_unit': item_obj.harga,
+                                'Quantity_Sold': jumlah,
+                                'Total_Revenue': item_obj.harga * jumlah
+                            }])
+                            global df_log_penjualan
+                            df_log_penjualan = pd.concat([df_log_penjualan, new_record], ignore_index=True)
                         
                         laporan_penjualan.catat_penjualan(pesanan_sekarang)
                         pembayaran.cetak_struk(pesanan_sekarang)
@@ -288,6 +302,7 @@ def run_app(menu_restoran):
                     print("Pesanan kosong, tidak ada pembayaran")
             else:
                 print("Tidak ada item yang ditambahkan ke pemesanan")
+
         elif choice == '3':
             print('\n--- Tambah Stok Item ---')
             item_nama = input("Masukkan nama item yang ingin ditambahi stok: ").lower()
