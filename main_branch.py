@@ -60,7 +60,7 @@ class Pemesanan:
         print(f"Total: Rp.{total}")
 
 class Pembayaran:
-    def __init__(self):
+    def __init__(self, metode):
         self.metode = metode
     def proses_pembayaran(self,total):
         print(f"Pembayaran sebesar Rp.{total} menggunakan {self.metode} berhasil!")
