@@ -22,29 +22,38 @@ def analisis_tren_item(data_penjualan):
 #Object Oriented Programming
 
 class itemMenu:
-    def __init__(self,nama,jenis,harga,ukuran,stock):
+    def __init__(self,nama,jenis,harga,stock):
         self.nama=nama
         self.jenis=jenis
         self.harga=harga
-        self.ukuran-ukuran
         self.stok=stock
     
     def tambahStok(self,jumlah):
         self.stok += jumlah
+        print(f"Stok {self.nama} bertambah {jumlah}. Total: {self.stok}")
     
     def kurangiStok(self,jumlah):
         if self.stok >= jumlah:
             self.stok -= jumlah
+            print(f"Stok {self.nama} berkurang {jumlah}. Stok sekarang: {self.stok}")
+            return True
         else:
-            print("Stok Tidak Cukup!")
+            print("Stok Tidak Cukup!, (Tersedia: {self.stock}, Diminta: {jumlah})")
+            return False
     
 class Pemesanan:
     def __init__(self):
         self.daftar_item =[]
 
     def tambah_item(self, item, jumlah):
-        self.daftar_item.append({'item':item, 'jumlah':jumlah})
-
+        if item.stok >= jumlah:
+            self.daftar_item.append({'item':item, 'jumlah':jumlah})
+            print(f"{item.nama} sejumlah {jumlah} ditambahkan ke pesanan")
+            return True
+        else:
+            print(f"Tidak dapat menambahkan {item.nama}")
+            return False
+        
     def hitung_total(self):
         total = 0
         for i in self.daftar_item:
@@ -52,34 +61,44 @@ class Pemesanan:
         return total
 
     def tampilkan_detail(self):
+        print('\n--- Detail Pemesanan ---')
+        if not self.daftar_item:
+            print("Pemesanan Kosong\n")
+            return 
         for i in self.daftar_item:
             item = i['item']
             jumlah = i['jumlah']
-            print(f"{item.nama} x{jumlah} = Rp{item.harga * jumlah}")
-        total = hitung_total_pemesanan(self.daftar_item)
-        print(f"Total: Rp.{total}")
+            print(f'{item.nama} x {item.jumlah} = Rp.{item.harga * jumlah}')
+        
+        total = self.hitung_total()
+        print('-'*10)
+        print(f"Total Pembelian: Rp.{total}")
+        print('-'*10)
 
 class Pembayaran:
-    def __init__(self):
-        self.metode = metode
+    def __init__(self, metode_pembayaran):
+        self.metode = metode_pembayaran
+
     def proses_pembayaran(self,total):
         print(f"Pembayaran sebesar Rp.{total} menggunakan {self.metode} berhasil!")
+        return True
+        
     def cetak_struk(self,pemesanan):
         print("\n====== STRUK PEMBELIAN ======")
         pemesanan.tampilkan_detail()
         print(f"Metode Pembayaran: {self.metode}")
-        print("="*10)
+        print("="*27)
 
 class ManajerStok:
-    def update_stok(self, pemesanan, nama_item, jumlah, operasi):
-        for i in pemesanan.daftar_item:
-            if i['item'].nama == nama_item:
-                if operasi == "kurangi":
-                    i['item'].kurangiStok(jumlah)
-                    break
-                elif operasi == "tambah":
-                    i['item'].tambahStok(jumlah)
-                    break
+    def update_stok(self, item_obj, jumlah, operasi):
+        if operasi == "kurangi":
+            return item_obj.kurangiStok(jumlah)
+        elif operasi == "tambah":
+            item_obj.tambahStok(jumlah)
+            return True
+        else:
+            print(f"Operasi stok tidak valid")
+            return False
 
 class LaporanPenjualan:
     def __init__(self):
@@ -88,15 +107,154 @@ class LaporanPenjualan:
     def catat_penjualan(self,pemesanan):
         for i in pemesanan.daftar_item:
             nama = i['item'].nama
-            pendapatan = i['item'].harga * i['jumlah']
+            jumlah = i['jumlah']
+            pendapatan = i['item'].harga * jumlah
+
             if nama in self.data_penjualan:
                 self.data_penjualan[nama]['jumlah'] += i['jumlah']
                 self.data_penjualan[nama]['pendapatan'] += pendapatan
             else:
                 self.data_penjualan[nama] = {'jumlah':i['jumlah'], 'pendapatan':pendapatan}
-    
+        print("Pemesanan telah dicatat\n")
+
     def tampilkan_laporan(self):
         print("\n====== LAPORAN PENJUALAN ======")
+        if not self.data_penjualan:
+            print("Belum ada data penjualan")
+            print('='*27)
+            return
+    
+        total_semua_penjualan = 0
+        total_pendapatan = 0
+
         for nama, data in self.data_penjualan.items():
             print(f"{nama} - Terjual:{data['jumlah']}| Pendapatan: Rp{data['pendapatan']}")
-        print('='*10)
+            total_semua_penjualan += data['jumlah']
+            total_pendapatan += data['pendapatan']
+        print('-'*27)
+        print(f"Total Item Terjual: {total_semua_penjualan}")
+        print(f"Total Pendapatan: Rp.{total_pendapatan}")
+        print('='*27)
+
+    def analisis_tren_item(self):
+        if not self.data_penjualan:
+            return "Belum ada data penjualan"
+        
+        penjualan_per_item = {nama: data['jumlah'] for nama, data in self.data_penjualan.items()}
+
+        if not penjualan_per_item:
+            return "Tidak ada item yang terjual"
+        
+        item_terlaris = max(penjualan_per_item, key=penjualan_per_item.get)
+        print(f"item Terlaris: {item_terlaris}, terjual: {penjualan_per_item[item_terlaris]}")
+        return item_terlaris
+    
+
+# ===============================================
+# Aplikasi Utama
+# ===============================================
+
+import pandas as pd
+import numpy as np
+
+def load_data(file_path):
+
+    daftar_objek_item = {}
+    try:
+        df_menu = pd.read_csv(file_path)
+        print("Berhasil Dimuat")
+
+        for index, row in df_menu.iterrows():
+            nama = str(row['Item'])
+            jenis = str(row['Category'])
+
+            #Konversi harga menjadi numerikal
+            try:
+                harga_str = str(row['Price']).replace('.',''.replace(',','.'))
+                harga = float(harga_str)
+            except:
+                print("Gagal Konversi harga untuk item {nama}")
+                harga = 0.0
+
+            #Konversi Stok 
+            try: 
+                stok = int(row['Quantity'])
+            except ValueError:
+                print("Gagal Konversi Stok untuk item {nama}")
+
+
+            #Objek itemMenu baru
+            item = itemMenu(
+                nama=nama,
+                jenis=jenis,
+                harga=harga,
+                stock=stok
+            )
+
+            daftar_objek_item[nama.lower()] = item
+        
+        print(f"Berhasil membuat {len(daftar_objek_item)} objek itemMenu dari data.")
+        return daftar_objek_item
+    
+    except FileNotFoundError:
+        print(f"ERROR: File tidak ditemukan")
+        return None
+    except KeyError as e:
+        print(f"ERROR: Kolom {e} tidak ditemukan")
+        return None
+    except Exception as e:
+        print(f"ERROR: Terjadi kesalahan saat memuat data: {e}")
+        return None
+    
+
+# ===============================================
+# APLIKASI UTAMA (MAIN LOOP)
+# ===============================================
+
+def run_app(menu_restoran):
+    if not menu_restoran:
+        print("Menu restoran tidak dappat dimuat")
+        return
+    
+    laporan_penjualan = LaporanPenjualan()
+    manajer_stok = ManajerStok()
+        
+    while True:
+        print("\n=== Aplikasi Restoran ===")
+        print("1. Lihat Menu")
+        print("2. Buat Pemesanan Baru")
+        print("3. Tambah Stok Item")
+        print("4. Lihat Laporan Penjualan")
+        print("5. Analisis Tren Item Terlaris")
+        print("6. Keluar")
+
+        choice = input("Pilih opsi (1-6): ")
+
+        if choice == '1':
+            print('\n====== DAFTAR MENU ======')
+            if not menu_restoran:
+                print("Menu Kosong")
+            else:
+                for item_name, item_obj in menu_restoran.items():
+                    print(f"{item_obj.nama:<20} ({item_obj.jenis:<10}) - Rp{item_obj.harga:10,.2f} - Stok: {item_obj.stok:<5}")
+            print('='*80)
+
+
+if __name__ == "__main__":
+    url_menu = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/Clean_Data_Restaurant_Final.csv'
+
+    menu_restoran = load_data(url_menu)
+
+    if menu_restoran:
+        print("\n--- Contoh Item Menu yang Dimuat (5 Teratas) ---")
+        count = 0
+        for nama_item, obj_item in menu_restoran.items():
+            print(f"Nama: {obj_item.nama}, Jenis: {obj_item.jenis}, Harga: Rp{obj_item.harga:,.2f}, Stok: {obj_item.stok}")
+            count += 1
+            if count >= 5:
+                break 
+        run_app(menu_restoran)
+    else:
+        print("Gagal memuat menu restoran. Aplikasi tidak dapat dimulai.")
+
+
