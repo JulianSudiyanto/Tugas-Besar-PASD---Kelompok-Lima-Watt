@@ -26,7 +26,7 @@ class itemMenu:
         self.nama=nama
         self.jenis=jenis
         self.harga=harga
-        self.ukuran-ukuran
+        self.ukuran=ukuran
         self.stok=stock
     
     def tambahStok(self,jumlah):
