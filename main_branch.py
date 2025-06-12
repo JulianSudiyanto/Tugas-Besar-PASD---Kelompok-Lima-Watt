@@ -355,6 +355,11 @@ def run_app(menu_restoran, df_menu_original):
             if current_df_menu_for_concat is not None and not current_df_menu_for_concat.empty:
                 filename = "data_gabungan.csv"
                 download_data(current_df_menu_for_concat, filename)
+                import subprocess
+
+                subprocess.run(["streamlit", "run", "dashboard.py"])
+                print("Program selesai")
+                break
         else:
             print("Pilihan tidak valid. Input pilihan lagi")
 
