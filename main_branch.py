@@ -161,64 +161,69 @@ import random
 df_log_penjualan = pd.DataFrame(columns=['Timestamp', 'Item', 'Category', 'Price_per_Unit', 'Quantity_Sold', 'Total_Revenue'])
 
 def load_data(file_path):
-
     daftar_objek_item = {}
+    df_menu_original = None # Inisialisasi df_menu di sini
     try:
-        df_menu = pd.read_csv(file_path)
+        df_menu_original = pd.read_csv(file_path) # df_menu yang dibaca dari CSV
         print("Berhasil Dimuat")
 
-        for index, row in df_menu.iterrows():
+        for index, row in df_menu_original.iterrows():
             nama = str(row['Item'])
             jenis = str(row['Category'])
 
-            #Konversi harga menjadi numerikal
             try:
-                harga_str = str(row['Price']).replace('.',''.replace(',','.'))
+                harga_str = str(row['Price']).replace('.', '').replace(',', '.')
                 harga = float(harga_str)
             except:
-                print("Gagal Konversi harga untuk item {nama}")
+                print(f"Gagal Konversi harga untuk item {nama}")
                 harga = 0.0
 
-            #Konversi Stok 
             stok = random.randint(1,10)
 
-
-            #Objek itemMenu baru
             item = itemMenu(
                 nama=nama,
                 jenis=jenis,
                 harga=harga,
                 stock=stok
             )
-
             daftar_objek_item[nama.lower()] = item
         
         print(f"Berhasil membuat {len(daftar_objek_item)} objek itemMenu dari data.")
-        return daftar_objek_item
+        # Mengembalikan kedua nilai: daftar_objek_item dan df_menu
+        return daftar_objek_item, df_menu_original.copy() 
     
     except FileNotFoundError:
         print(f"ERROR: File tidak ditemukan")
-        return None
+        return None, None
     except KeyError as e:
         print(f"ERROR: Kolom {e} tidak ditemukan")
-        return None
+        return None, None
     except Exception as e:
         print(f"ERROR: Terjadi kesalahan saat memuat data: {e}")
-        return None
+        return None, None
+    
+def update_df_menu_with_sales(current_df_menu, new_sales_log_entries):
+    df_combined = pd.concat([current_df_menu, new_sales_log_entries], ignore_index=True)
+    return df_combined
+
     
 
 # ===============================================
 # APLIKASI UTAMA (MAIN LOOP)
 # ===============================================
 
-def run_app(menu_restoran):
-    if not menu_restoran:
+def run_app(menu_restoran, df_menu_original):
+    global current_df_menu_for_concat
+    if not menu_restoran or df_menu_original is None:
         print("Menu restoran tidak dappat dimuat")
         return
     
     laporan_penjualan = LaporanPenjualan()
     manajer_stok = ManajerStok()
         
+
+    current_df_menu_for_concat = df_menu_original.copy()
+
     while True:
         print("\n=== Aplikasi Restoran ===")
         print("1. Lihat Menu")
@@ -226,9 +231,10 @@ def run_app(menu_restoran):
         print("3. Tambah Stok Item")
         print("4. Lihat Laporan Penjualan")
         print("5. Analisis Tren Item Terlaris")
-        print("6. Keluar")
+        print("6. Lihat Data Penjualan")
+        print("7. Keluar")
 
-        choice = input("Pilih opsi (1-6): ")
+        choice = input("Pilih opsi (1-7): ")
 
         if choice == '1':
             print('\n====== DAFTAR MENU ======')
@@ -281,21 +287,28 @@ def run_app(menu_restoran):
                             item_obj = item_data['item']
                             jumlah = item_data['jumlah']
 
-                            manajer_stok.update_stok(item_obj, jumlah, "kurangi")
+                            if manajer_stok.update_stok(item_obj, jumlah, "kurangi"):
+                                new_record = pd.DataFrame([{
+                                    'Timestamp': timestamp_transaksi,
+                                    'Item': item_obj.nama,
+                                    'Category': item_obj.jenis,
+                                    'Price_per_unit': item_obj.harga,
+                                    'Quantity_Sold': jumlah,
+                                    'Total_Revenue': item_obj.harga * jumlah
+                                }])
 
-                            new_record = pd.DataFrame([{
-                                'Timestamp': timestamp_transaksi,
-                                'Item': item_obj.nama,
-                                'Category': item_obj.jenis,
-                                'Price_per_unit': item_obj.harga,
-                                'Quantity_Sold': jumlah,
-                                'Total_Revenue': item_obj.harga * jumlah
-                            }])
-                            global df_log_penjualan
-                            df_log_penjualan = pd.concat([df_log_penjualan, new_record], ignore_index=True)
+                                global df_log_penjualan
+                                df_log_penjualan = pd.concat([df_log_penjualan, new_record], ignore_index=True)
                         
-                        laporan_penjualan.catat_penjualan(pesanan_sekarang)
-                        pembayaran.cetak_struk(pesanan_sekarang)
+
+                                
+                                current_df_menu_for_concat = pd.concat([current_df_menu_for_concat, new_record],ignore_index=True)
+                            else:
+                                print(f"Gagal mengurangi stok, pembayaran dibatalkan")
+                                break
+                        else:
+                            laporan_penjualan.catat_penjualan(pesanan_sekarang)
+                            pembayaran.cetak_struk(pesanan_sekarang)
                     else:
                         print("Pembayaran gagal. Pemesanan tidak dapat diselesaikan")
                 else:
@@ -323,6 +336,9 @@ def run_app(menu_restoran):
         elif choice == '5':
             laporan_penjualan.analisis_tren_item()
         elif choice == '6':
+            print(current_df_menu_for_concat.tail(10))
+
+        elif choice == '7':
             break
         else:
             print("Pilihan tidak valid. Input pilihan lagi")
@@ -331,18 +347,11 @@ def run_app(menu_restoran):
 if __name__ == "__main__":
     url_menu = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/Clean_Data_Restaurant_Final.csv'
 
-    menu_restoran = load_data(url_menu)
+    menu_restoran, initial_df_menu = load_data(url_menu)
 
-    if menu_restoran:
-        print("\n--- Contoh Item Menu yang Dimuat (5 Teratas) ---")
-        count = 0
-        for nama_item, obj_item in menu_restoran.items():
-            print(f"Nama: {obj_item.nama}, Jenis: {obj_item.jenis}, Harga: Rp{obj_item.harga:,.2f}, Stok: {obj_item.stok}")
-            count += 1
-            if count >= 5:
-                break 
-        run_app(menu_restoran)
+    if menu_restoran is not None and initial_df_menu is not None: # Cek kedua nilai
+        run_app(menu_restoran, initial_df_menu) 
     else:
-        print("Gagal memuat menu restoran. Aplikasi tidak dapat dimulai.")
+        print("Gagal memuat menu restoran atau DataFrame. Aplikasi tidak dapat dimulai.")
 
 
