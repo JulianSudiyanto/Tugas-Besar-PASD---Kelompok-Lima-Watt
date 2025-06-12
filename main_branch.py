@@ -68,7 +68,7 @@ class Pemesanan:
         for i in self.daftar_item:
             item = i['item']
             jumlah = i['jumlah']
-            print(f'{item.nama} x {item.jumlah} = Rp.{item.harga * jumlah}')
+            print(f'{item.nama} x {jumlah} = Rp.{item.harga * jumlah}')
         
         total = self.hitung_total()
         print('-'*10)
@@ -238,6 +238,61 @@ def run_app(menu_restoran):
                 for item_name, item_obj in menu_restoran.items():
                     print(f"{item_obj.nama:<20} ({item_obj.jenis:<10}) - Rp{item_obj.harga:10,.2f} - Stok: {item_obj.stok:<5}")
             print('='*80)
+        elif choice == '2':
+            pesanan_sekarang = Pemesanan()
+            print('\n--- Buat Pemesanan ---')
+            print("Ketik 'selesai' untuk mengakhiri, 'batal' untuk membatalkan")
+
+            while True:
+                item_nama = input("Masukkkan nama item: ").lower()
+
+                if item_nama == 'selesai':
+                    break
+                if item_nama == 'batal':
+                    pesanan_sekarang = Pemesanan()
+                    print('Pemesanan Dibatalkan')
+                    break
+                if item_nama in menu_restoran:
+                    item_obj = menu_restoran[item_nama]
+                    try:
+                        jumlah = int(input(f"Masukkan jumlah '{item_obj.nama}' (Stok: {item_obj.stok}): "))
+                        if jumlah <= 0:
+                            print("Jumlah harus lebih dari 0.")
+                            continue
+                        if pesanan_sekarang.tambah_item(item_obj, jumlah):
+                            pass
+                        else:
+                            pass
+                    except ValueError:
+                        print("Jumlah tidak valid, masukkan angka")
+                else:
+                    print("Item tidak ditemuka, cek menu item")
+            
+            if pesanan_sekarang.daftar_item:
+                pesanan_sekarang.tampilkan_detail()
+                total_bayar = pesanan_sekarang.hitung_total()
+
+                if total_bayar > 0:
+                    metode_bayar = input("Pilih metode pembayaran (Cash/Credit Card/Digital Wallet): ")
+                    pembayaran = Pembayaran(metode_bayar) 
+
+                    if pembayaran.proses_pembayaran(total_bayar):
+                        for item_data in pesanan_sekarang.daftar_item:
+                            item_obj = item_data['item']
+                            jumlah = item_data['jumlah']
+
+                            manajer_stok.update_stok(item_obj, jumlah, "kurangi")
+                        
+                        laporan_penjualan.catat_penjualan(pesanan_sekarang)
+                        pembayaran.cetak_struk(pesanan_sekarang)
+                    else:
+                        print("Pembayaran gagal. Pemesanan tidak dapat diselesaikan")
+                else:
+                    print("Pesanan kosong, tidak ada pembayaran")
+            else:
+                print("Tidak ada item yang ditambahkan ke pemesanan")
+        elif choice == '6':
+            break
 
 
 if __name__ == "__main__":
