@@ -165,7 +165,6 @@ def load_data(file_path):
     df_menu_original = None # Inisialisasi df_menu di sini
     try:
         df_menu_original = pd.read_csv(file_path) # df_menu yang dibaca dari CSV
-        print("Berhasil Dimuat")
 
         for index, row in df_menu_original.iterrows():
             nama = str(row['Item'])
@@ -188,7 +187,6 @@ def load_data(file_path):
             )
             daftar_objek_item[nama.lower()] = item
         
-        print(f"Berhasil membuat {len(daftar_objek_item)} objek itemMenu dari data.")
         # Mengembalikan kedua nilai: daftar_objek_item dan df_menu
         return daftar_objek_item, df_menu_original.copy() 
     
@@ -205,6 +203,18 @@ def load_data(file_path):
 def update_df_menu_with_sales(current_df_menu, new_sales_log_entries):
     df_combined = pd.concat([current_df_menu, new_sales_log_entries], ignore_index=True)
     return df_combined
+
+def download_data(dataframe, filename='data_gabungan.csv'):
+    try:
+        if filename.endswith('.csv'):
+            dataframe.to_csv(filename, index=False)
+            print(f"Data berhasi disimpan ke {filename}.CSV")
+        elif filename.endswith('.xlsx'):
+            print(f"Data berhasi disimpan ke {filename}.XLSX")
+        else:
+            print(f"Data berhasi disimpan ke {filename}.XLSX")
+    except Exception as e:
+        print(f"\nGagal menyimpan data: {e}")
 
     
 
@@ -233,8 +243,9 @@ def run_app(menu_restoran, df_menu_original):
         print("5. Analisis Tren Item Terlaris")
         print("6. Lihat Data Penjualan")
         print("7. Keluar")
+        print("8. Download Data Hasil")
 
-        choice = input("Pilih opsi (1-7): ")
+        choice = input("Pilih opsi (1-8): ")
 
         if choice == '1':
             print('\n====== DAFTAR MENU ======')
@@ -340,6 +351,10 @@ def run_app(menu_restoran, df_menu_original):
 
         elif choice == '7':
             break
+        elif choice == '8':
+            if current_df_menu_for_concat is not None and not current_df_menu_for_concat.empty:
+                filename = "data_gabungan.csv"
+                download_data(current_df_menu_for_concat, filename)
         else:
             print("Pilihan tidak valid. Input pilihan lagi")
 
