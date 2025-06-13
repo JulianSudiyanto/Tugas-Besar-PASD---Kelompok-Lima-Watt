@@ -247,13 +247,11 @@ def run_app(menu_restoran, df_menu_original):
         print("1. Lihat Menu")
         print("2. Buat Pemesanan Baru")
         print("3. Tambah Stok Item")
-        print("4. Lihat Laporan Penjualan")
-        print("5. Analisis Tren Item Terlaris")
-        print("6. Lihat Data Penjualan")
-        print("7. Keluar")
-        print("8. Download Data Hasil")
+        print("4. Lihat Data Penjualan")
+        print("5. Download Data Hasil")
+        print("6. Keluar")
 
-        choice = input("Pilih opsi (1-8): ")
+        choice = input("Pilih opsi (1-6): ")
 
         if choice == '1':
             print('\n========================= DAFTAR MENU =========================')
@@ -325,7 +323,8 @@ def run_app(menu_restoran, df_menu_original):
                                 }])
 
                                 global df_log_penjualan
-                                df_log_penjualan = pd.concat([df_log_penjualan, new_record], ignore_index=True)
+                                if df_log_penjualan.empty:
+                                     df_log_penjualan = pd.DataFrame(columns=new_record.columns)
 
                                 current_df_menu_for_concat = pd.concat([current_df_menu_for_concat, new_record], ignore_index=True)
                             else:
@@ -341,30 +340,31 @@ def run_app(menu_restoran, df_menu_original):
             else:
                 print("\n📭 Tidak ada item yang ditambahkan ke pesanan.")
         elif choice == '3':
-            print('\n--- Tambah Stok Item ---')
-            item_nama = input("Masukkan nama item yang ingin ditambahi stok: ").lower()
+            print("\n" + "="*30)
+            print(" TAMBAH STOK ITEM ".center(30, "="))
+            print("="*30)
+
+            item_nama = input("Masukkan nama item yang ingin ditambah stoknya: ").strip().lower()
+
             if item_nama in menu_restoran:
                 item_obj = menu_restoran[item_nama]
-                try: 
-                    jumlah_tambah = int(input(f"Masukkan jumlah stok yang ingin ditambahkan untuk {item_obj.nama}: "))
+                print(f"\nStok saat ini untuk '{item_obj.nama}': {item_obj.stok}")
+                try:
+                    jumlah_tambah = int(input(f"Masukkan jumlah stok yang ingin ditambahkan: "))
                     if jumlah_tambah > 0:
                         manajer_stok.update_stok(item_obj, jumlah_tambah, "tambah")
+                        print(f"✅ Stok berhasil ditambahkan! Total stok baru: {item_obj.stok}")
                     else:
-                        print("Jumlah harus angka positif")
+                        print("⚠️ Jumlah harus berupa angka positif.")
                 except ValueError:
-                    print("Jumlah harus berupa angka")
+                    print("❌ Input tidak valid. Jumlah harus berupa angka.")
             else:
-                print("Item tidak ditemukan")
+                print("❌ Item tidak ditemukan di menu.")
         elif choice == '4':
-            laporan_penjualan.tampilkan_laporan()
+            from tabulate import tabulate
+            print("\n=== 10 Transaksi Terakhir ===\n")
+            print(tabulate(current_df_menu_for_concat.tail(10), headers='keys', tablefmt='pretty', showindex=False))
         elif choice == '5':
-            laporan_penjualan.analisis_tren_item()
-        elif choice == '6':
-            print(current_df_menu_for_concat.tail(10))
-
-        elif choice == '7':
-            break
-        elif choice == '8':
             if current_df_menu_for_concat is not None and not current_df_menu_for_concat.empty:
                 filename = "data_gabungan.csv"
                 download_data(current_df_menu_for_concat, filename)
@@ -373,6 +373,8 @@ def run_app(menu_restoran, df_menu_original):
                 subprocess.run(["streamlit", "run", "dashboard.py"])
                 print("Program selesai")
                 break
+        elif choice == '6':
+            break
         else:
             print("Pilihan tidak valid. Input pilihan lagi")
 
