@@ -5,12 +5,24 @@ Repository Tugas Besar Mata Kuliah PASD - Kelompok Lima Watt
 Aplikasi Kasir Kita adalah program yang dirancang untuk membantu pelaku usaha dalam mengelola transaksi penjualan, stok barang, serta menghasilkan laporan penjualan secara otomatis. Dengan pendekatan Functional Programming (FP) dan Object-Oriented Programming (OOP), aplikasi ini memudahkan penggunanya dalam melakukan pencatatan pemesanan, pengelolaan stok barang, hingga pembuatan laporan penjualan.
 
 ## Functional Program
+FP adalah paradigma pemrograman yang berfokus pada penggunaan fungsi-fungsi murni (pure functions), di mana data bersifat immutable (tidak diubah setelah dibuat) dan tidak ada efek samping (side effect).
 1. hitung_total_pemesanan(daftar_item):
    Menghitung total harga semua item dalam pemesanan.
 2. analisis_tren_item(data_penjualan):
    Menentukan item yang paling banyak terjual dari data penjualan.
 
 ## Object-Oriented Program
+OOP adalah pemrograman yang berfokus pada penggunaan objek—struktur yang menggabungkan data dan fungsi yang berkaitan—untuk membangun program yang modular, terorganisir, dan mudah dipelihara.
+Prinsip OOP:
+1. Encapsulation (Enkapsulasi)
+   Membungkus data (atribut/properti) dan fungsi (metode) ke dalam satu kesatuan objek sehingga data hanya dapat diakses melalui metode yang sudah ditentukan.
+   Contoh:
+   class itemMenu:
+   def init(self, nama, harga):
+   self.nama = nama
+   self.__harga = harga # disembunyikan dari luar class
+   
+Fungsi yang dipakai:
 1. class itemMenu: Mewakili sebuah item/menu yang dijual.
 
    Atribut: nama, jenis, harga, ukuran, stok
