@@ -2,7 +2,16 @@
 Repository Tugas Besar Mata Kuliah PASD - Kelompok Lima Watt
 
 ## Deskripsi
-Aplikasi Kasir Kita adalah program yang dirancang untuk membantu pelaku usaha dalam mengelola transaksi penjualan, stok barang, serta menghasilkan laporan penjualan secara otomatis. Dengan pendekatan Functional Programming (FP) dan Object-Oriented Programming (OOP), aplikasi ini memudahkan penggunanya dalam melakukan pencatatan pemesanan, pengelolaan stok barang, hingga pembuatan laporan penjualan.
+KasirKita merupakan aplikasi kasir digital yang dibangun menggunakan Python dan Streamlit. Aplikasi ini tidak hanya menangani proses transaksi penjualan di restoran, tetapi juga mengelola stok barang, mencatat laporan, dan bahkan menganalisis perilaku pelanggan dengan bantuan model machine learning. Proyek ini menggabungkan paradigma Object-Oriented Programming (OOP) dan Functional Programming (FP), serta menggunakan algoritma Random Forest untuk prediksi pelanggan churn.
+
+## Dataset
+1. Cleaned_200_Price_Data_Final.csv:
+   Dataset ini merupakan data dummy yang akan dijadikan data test, dengan informasi:
+   1. Item: Nama menu
+   2. Category: Kategori menu (Makananan/Minuman)
+   3. Price: Harga menu
+   4. 
+3. Clean_Data_Restaurant_Final.csv:
 
 ## Functional Program
 FP adalah paradigma pemrograman yang berfokus pada penggunaan fungsi-fungsi murni (pure functions), di mana data bersifat immutable (tidak diubah setelah dibuat) dan tidak ada efek samping (side effect).
