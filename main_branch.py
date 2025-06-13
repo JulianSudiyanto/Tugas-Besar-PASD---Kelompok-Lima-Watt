@@ -288,7 +288,7 @@ def launch_ui(dataframe, filename="data_gabungan.csv"):
         download_data(dataframe, filename)
 
         import subprocess
-        import sy
+        import sys
         subprocess.run([sys.executable, "-m", "streamlit", "run", "ui.py"])
         print("Program selesai")
 
