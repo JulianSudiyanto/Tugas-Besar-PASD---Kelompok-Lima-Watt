@@ -1,25 +1,25 @@
-##Functional Programming
+# ##Functional Programming
 
-def hitung_total_pemesanan(daftar_item):
-    total = 0
-    for i in daftar_item:
-        total += i['item'].harga* i['jumlah']
-    return total
+# def hitung_total_pemesanan(daftar_item):
+#     total = 0
+#     for i in daftar_item:
+#         total += i['item'].harga* i['jumlah']
+#     return total
 
-def analisis_tren_item(data_penjualan):
-    penjualan ={}
-    for i in data_penjualan:
-        nama = i['item'].nama
-        jum = i['jumlah']
-        if nama in penjualan:
-            penjualan[nama] += jum
-        else:
-            penjualan[nama] = jum
+# def analisis_tren_item(data_penjualan):
+#     penjualan ={}
+#     for i in data_penjualan:
+#         nama = i['item'].nama
+#         jum = i['jumlah']
+#         if nama in penjualan:
+#             penjualan[nama] += jum
+#         else:
+#             penjualan[nama] = jum
     
-    item_terlaris = max(penjualan, key=penjualan.get)
-    return item_terlaris
+#     item_terlaris = max(penjualan, key=penjualan.get)
+#     return item_terlaris
 
-#Object Oriented Programming
+# #Object Oriented Programming
 
 class itemMenu:
     def __init__(self,nama,jenis,harga,stock):
@@ -216,7 +216,7 @@ def download_data(dataframe, filename='data_gabungan.csv'):
     try:
         if filename.endswith('.csv'):
             dataframe.to_csv(filename, index=False)
-            print(f"Data berhasi disimpan ke {filename}.CSV")
+            print(f"Data berhasi disimpan ke {filename}")
         elif filename.endswith('.xlsx'):
             print(f"Data berhasi disimpan ke {filename}.XLSX")
         else:
@@ -369,8 +369,9 @@ def run_app(menu_restoran, df_menu_original):
                 filename = "data_gabungan.csv"
                 download_data(current_df_menu_for_concat, filename)
                 import subprocess
-
-                subprocess.run(["streamlit", "run", "dashboard.py"])
+                import sys
+        
+                subprocess.run([sys.executable, "-m", "streamlit", "run", "ui.py"])
                 print("Program selesai")
                 break
         elif choice == '6':
