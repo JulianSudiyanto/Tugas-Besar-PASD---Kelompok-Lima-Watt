@@ -34,6 +34,8 @@ Prinsip FP:
 1.  Pure Function (Fungsi Murni) adalah fungsi yang selalu memberikan output yang sama untuk input yang sama dan tidak menghasilkan efek samping (side effect) seperti mengubah data di luar dirinya.
 2.  Immutability (Data Tidak Bisa Diubah) adalah prinsip di mana data tidak diubah setelah dibuat. Jika kamu ingin mengubah data, maka kamu harus membuat salinan/modifikasi baru, bukan mengubah nilai aslinya.
 3.  Higher-Order Function (Fungsi Tingkat Tinggi) function adalah fungsi yang menerima fungsi lain sebagai argumen, atau mengembalikan fungsi sebagai hasil. Ini memungkinkan kita untuk membuat logika yang lebih fleksibel dan reusable.
+
+   
    
 ## Object-Oriented Program
 OOP adalah pemrograman yang berfokus pada penggunaan objek—struktur yang menggabungkan data dan fungsi yang berkaitan—untuk membangun program yang modular, terorganisir, dan mudah dipelihara.
@@ -84,13 +86,6 @@ Fungsi yang dipakai:
    1. catat_penjualan(pemesanan)
    2. tampilkan_laporan()
 
-## Fitur Utama
-1. Pencatatan Pemesanan: Menambahkan item ke pesanan dan menghitung total otomatis.
-2. Analisis Tren Penjualan: Menentukan produk terlaris dari data yang tercatat.
-3. Manajemen Stok: Menambahkan atau mengurangi stok barang.
-4. Cetak Struk dan Pembayaran: Mendukung berbagai metode pembayaran dan mencetak struk sederhana.
-5. Laporan Penjualan: Menampilkan rekap jumlah barang terjual dan total pendapatan.
-
 ## INSTALASI
 1. Download seluruh file dan folder yang tersedia
 2. Taruh semua file di satu direktori yang sama
@@ -99,9 +94,10 @@ Fungsi yang dipakai:
 5. Pilih menu yang diinginkan
 
 ## Penjelasan Menu
-1. Lihat Menu:
-2. 
-3. c
-4. d
-5. Re
+1. Lihat Menu
+2. Buat Pemesanan Baru
+3. Tambah Stok Item
+4. Lihat Data Penjualan
+5. Download Data Hasil
+6. Keluar
 
