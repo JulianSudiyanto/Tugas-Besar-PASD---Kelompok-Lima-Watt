@@ -1,201 +1,201 @@
-Order ID,Customer ID,Category,Item,Price,Quantity,Payment Method
-ORD_705844,CUST_092,Side Dishes,Side Salad,47400,1.0,Credit Card
-ORD_338528,CUST_021,Side Dishes,Mashed Potatoes,63200,3.0,Digital Wallet
-ORD_443849,CUST_029,Main Dishes,Grilled Chicken,237000,4.0,Credit Card
-ORD_648269,CUST_031,Main Dishes,Pasta Alfredo,189600,4.0,Cash
-ORD_381680,CUST_031,Main Dishes,Salmon,284400,5.0,Digital Wallet
-ORD_270994,CUST_071,Side Dishes,Garlic Bread,63200,5.0,Credit Card
-ORD_117003,CUST_021,Desserts,Brownie,94800,2.0,Credit Card
-ORD_726419,CUST_025,Main Dishes,Salmon,284400,5.0,Cash
-ORD_754176,CUST_047,Main Dishes,Salmon,284400,1.0,Cash
-ORD_330351,CUST_057,Starters,Sweet Potato Fries,79000,4.0,Credit Card
-ORD_458560,CUST_017,Side Dishes,Mashed Potatoes,63200,3.0,Cash
-ORD_639569,CUST_024,Drinks,Lemonade,47400,2.0,Cash
-ORD_736695,CUST_067,Main Dishes,Grilled Chicken,237000,3.0,Digital Wallet
-ORD_283207,CUST_090,Side Dishes,Side Salad,47400,2.0,Digital Wallet
-ORD_744179,CUST_009,Desserts,Brownie,94800,3.0,Credit Card
-ORD_845047,CUST_052,Main Dishes,Vegetarian Platter,221200,4.0,Digital Wallet
-ORD_862247,CUST_071,Side Dishes,Side Salad,47400,4.0,Credit Card
-ORD_356735,CUST_055,Main Dishes,Salmon,284400,4.0,Credit Card
-ORD_333540,CUST_055,Drinks,Orange Juice,47400,4.0,Digital Wallet
-ORD_415215,CUST_094,Desserts,Chocolate Cake,94800,5.0,Cash
-ORD_375110,CUST_041,Drinks,Coca Cola,39500,1.0,Digital Wallet
-ORD_117414,CUST_055,Side Dishes,Grilled Vegetables,79000,4.0,Credit Card
-ORD_918434,CUST_096,Main Dishes,Vegetarian Platter,221200,3.0,Digital Wallet
-ORD_220701,CUST_040,Drinks,Coca Cola,39500,4.0,Digital Wallet
-ORD_647762,CUST_021,Main Dishes,Pasta Alfredo,189600,1.0,Credit Card
-ORD_427480,CUST_052,Starters,Cheese Fries,79000,1.0,Cash
-ORD_225136,CUST_008,Starters,Cheese Fries,79000,3.0,Cash
-ORD_791116,CUST_007,Desserts,Chocolate Cake,94800,4.0,Digital Wallet
-ORD_418736,CUST_091,Starters,Beef Chili,110600,5.0,Cash
-ORD_438442,CUST_011,Side Dishes,Grilled Vegetables,79000,5.0,Credit Card
-ORD_300241,CUST_040,Starters,Chicken Melt,126400,4.0,Credit Card
-ORD_130258,CUST_042,Desserts,Brownie,94800,2.0,Cash
-ORD_893229,CUST_049,Main Dishes,Pasta Alfredo,189600,2.0,Cash
-ORD_175452,CUST_053,Drinks,Lemonade,47400,3.0,Digital Wallet
-ORD_280294,CUST_008,Desserts,Fruit Salad,63200,2.0,Digital Wallet
-ORD_708630,CUST_081,Main Dishes,Pasta Alfredo,189600,1.0,Credit Card
-ORD_479066,CUST_054,Starters,French Fries,63200,4.0,Digital Wallet
-ORD_120337,CUST_093,Main Dishes,Grilled Chicken,237000,4.0,Credit Card
-ORD_152465,CUST_071,Starters,Chicken Melt,126400,1.0,Cash
-ORD_108842,CUST_031,Starters,Sweet Potato Fries,79000,2.0,Credit Card
-ORD_473682,CUST_014,Drinks,Coca Cola,39500,2.0,Credit Card
-ORD_330617,CUST_088,Desserts,Ice Cream,79000,3.0,Cash
-ORD_155188,CUST_084,Side Dishes,Mashed Potatoes,63200,4.0,Digital Wallet
-ORD_640883,CUST_057,Desserts,Cheesecake,110600,1.0,Cash
-ORD_650189,CUST_013,Desserts,Chocolate Cake,94800,1.0,Cash
-ORD_625401,CUST_100,Side Dishes,Mashed Potatoes,63200,4.0,Cash
-ORD_418032,CUST_094,Main Dishes,Grilled Chicken,237000,3.0,Credit Card
-ORD_763806,CUST_078,Main Dishes,Grilled Chicken,237000,2.0,Credit Card
-ORD_578794,CUST_098,Side Dishes,Grilled Vegetables,79000,5.0,Cash
-ORD_208139,CUST_004,Desserts,Cheesecake,110600,1.0,Cash
-ORD_864219,CUST_040,Side Dishes,Mashed Potatoes,63200,4.0,Credit Card
-ORD_828507,CUST_090,Drinks,Iced Tea,39500,5.0,Credit Card
-ORD_696101,CUST_035,Side Dishes,Grilled Vegetables,79000,2.0,Cash
-ORD_136075,CUST_080,Starters,Chicken Melt,126400,3.0,Credit Card
-ORD_882768,CUST_020,Starters,Sweet Potato Fries,79000,2.0,Credit Card
-ORD_237978,CUST_007,Main Dishes,Pasta Alfredo,189600,3.0,Cash
-ORD_728161,CUST_038,Starters,Sweet Potato Fries,79000,4.0,Digital Wallet
-ORD_270218,CUST_037,Main Dishes,Grilled Chicken,237000,5.0,Digital Wallet
-ORD_387616,CUST_085,Main Dishes,Grilled Chicken,237000,3.0,Cash
-ORD_205058,CUST_043,Side Dishes,Mashed Potatoes,63200,5.0,Credit Card
-ORD_761221,CUST_034,Drinks,Iced Tea,39500,2.0,Cash
-ORD_514854,CUST_060,Drinks,Orange Juice,47400,2.0,Credit Card
-ORD_727365,CUST_036,Side Dishes,Garlic Bread,63200,5.0,Credit Card
-ORD_837763,CUST_042,Side Dishes,Mashed Potatoes,63200,4.0,Digital Wallet
-ORD_176616,CUST_051,Side Dishes,Garlic Bread,63200,2.0,Cash
-ORD_805646,CUST_001,Starters,French Fries,63200,5.0,Cash
-ORD_343882,CUST_020,Side Dishes,Side Salad,47400,5.0,Credit Card
-ORD_444692,CUST_045,Side Dishes,Side Salad,47400,5.0,Cash
-ORD_500318,CUST_024,Starters,Chicken Melt,126400,5.0,Cash
-ORD_275854,CUST_033,Desserts,Ice Cream,79000,2.0,Credit Card
-ORD_323443,CUST_041,Desserts,Chocolate Cake,94800,3.0,Cash
-ORD_877261,CUST_036,Drinks,Coca Cola,39500,1.0,Credit Card
-ORD_170375,CUST_021,Side Dishes,Side Salad,47400,2.0,Digital Wallet
-ORD_177847,CUST_066,Side Dishes,Mashed Potatoes,63200,3.0,Digital Wallet
-ORD_539782,CUST_060,Side Dishes,Grilled Vegetables,79000,1.0,Credit Card
-ORD_106904,CUST_082,Desserts,Ice Cream,79000,1.0,Digital Wallet
-ORD_772436,CUST_031,Drinks,Coca Cola,39500,4.0,Digital Wallet
-ORD_218145,CUST_005,Side Dishes,Mashed Potatoes,63200,4.0,Credit Card
-ORD_440469,CUST_080,Main Dishes,Pasta Alfredo,189600,3.0,Cash
-ORD_104960,CUST_040,Main Dishes,Pasta Alfredo,189600,1.0,Digital Wallet
-ORD_104466,CUST_050,Drinks,Orange Juice,47400,1.0,Cash
-ORD_631686,CUST_099,Main Dishes,Pasta Alfredo,189600,2.0,Credit Card
-ORD_778015,CUST_089,Main Dishes,Pasta Alfredo,189600,1.0,Credit Card
-ORD_301667,CUST_029,Desserts,Brownie,94800,3.0,Digital Wallet
-ORD_871279,CUST_045,Main Dishes,Pasta Alfredo,189600,5.0,Digital Wallet
-ORD_302668,CUST_026,Main Dishes,Grilled Chicken,237000,3.0,Cash
-ORD_161991,CUST_048,Starters,Beef Chili,110600,5.0,Cash
-ORD_761978,CUST_056,Main Dishes,Grilled Chicken,237000,2.0,Digital Wallet
-ORD_181882,CUST_062,Desserts,Chocolate Cake,94800,3.0,Cash
-ORD_696255,CUST_055,Starters,Nachos Grande,158000,1.0,Digital Wallet
-ORD_749532,CUST_063,Drinks,Water,15800,5.0,Credit Card
-ORD_378802,CUST_094,Side Dishes,Garlic Bread,63200,4.0,Digital Wallet
-ORD_537413,CUST_036,Starters,Beef Chili,110600,2.0,Digital Wallet
-ORD_820759,CUST_034,Drinks,Orange Juice,47400,3.0,Credit Card
-ORD_190938,CUST_038,Starters,Beef Chili,110600,2.0,Digital Wallet
-ORD_490302,CUST_097,Main Dishes,Pasta Alfredo,189600,3.0,Cash
-ORD_322835,CUST_012,Drinks,Orange Juice,47400,1.0,Cash
-ORD_991912,CUST_019,Drinks,Iced Tea,39500,5.0,Cash
-ORD_396448,CUST_074,Drinks,Water,15800,2.0,Credit Card
-ORD_515941,CUST_095,Starters,French Fries,63200,5.0,Digital Wallet
-ORD_684439,CUST_068,Starters,Cheese Fries,79000,1.0,Cash
-ORD_904504,CUST_093,Side Dishes,Grilled Vegetables,79000,4.0,Cash
-ORD_560561,CUST_013,Side Dishes,Onion Rings,79000,1.0,Digital Wallet
-ORD_165348,CUST_073,Desserts,Ice Cream,79000,4.0,Cash
-ORD_110621,CUST_061,Drinks,Iced Tea,39500,2.0,Digital Wallet
-ORD_142238,CUST_082,Side Dishes,Grilled Vegetables,79000,4.0,Credit Card
-ORD_356583,CUST_037,Desserts,Ice Cream,79000,2.0,Credit Card
-ORD_357330,CUST_023,Main Dishes,Grilled Chicken,237000,5.0,Digital Wallet
-ORD_298049,CUST_013,Drinks,Orange Juice,47400,4.0,Credit Card
-ORD_439041,CUST_029,Main Dishes,Steak,316000,3.0,Digital Wallet
-ORD_714187,CUST_026,Desserts,Chocolate Cake,94800,3.0,Digital Wallet
-ORD_719718,CUST_037,Desserts,Brownie,94800,2.0,Cash
-ORD_333412,CUST_089,Main Dishes,Pasta Alfredo,189600,5.0,Digital Wallet
-ORD_809926,CUST_034,Starters,Cheese Fries,79000,3.0,Cash
-ORD_100517,CUST_074,Starters,Chicken Melt,126400,5.0,Credit Card
-ORD_203174,CUST_094,Desserts,Fruit Salad,63200,3.0,Credit Card
-ORD_363633,CUST_076,Side Dishes,Garlic Bread,63200,5.0,Credit Card
-ORD_369689,CUST_058,Starters,Sweet Potato Fries,79000,1.0,Cash
-ORD_150300,CUST_011,Desserts,Fruit Salad,63200,1.0,Digital Wallet
-ORD_838505,CUST_029,Desserts,Chocolate Cake,94800,1.0,Cash
-ORD_626227,CUST_038,Desserts,Ice Cream,79000,1.0,Credit Card
-ORD_410162,CUST_054,Starters,Cheese Fries,79000,2.0,Digital Wallet
-ORD_540613,CUST_042,Drinks,Lemonade,47400,5.0,Digital Wallet
-ORD_715554,CUST_029,Side Dishes,Side Salad,47400,2.0,Credit Card
-ORD_199989,CUST_068,Starters,Chicken Melt,126400,5.0,Credit Card
-ORD_893713,CUST_089,Side Dishes,Grilled Vegetables,79000,5.0,Digital Wallet
-ORD_780854,CUST_097,Side Dishes,Side Salad,47400,3.0,Digital Wallet
-ORD_389349,CUST_028,Starters,French Fries,63200,4.0,Cash
-ORD_299419,CUST_061,Main Dishes,Vegetarian Platter,221200,5.0,Cash
-ORD_386546,CUST_093,Main Dishes,Steak,316000,3.0,Digital Wallet
-ORD_932686,CUST_070,Drinks,Lemonade,47400,2.0,Digital Wallet
-ORD_443479,CUST_099,Desserts,Ice Cream,79000,4.0,Cash
-ORD_232289,CUST_096,Desserts,Brownie,94800,4.0,Credit Card
-ORD_167843,CUST_034,Drinks,Lemonade,47400,5.0,Credit Card
-ORD_970834,CUST_008,Desserts,Cheesecake,110600,4.0,Cash
-ORD_731848,CUST_067,Drinks,Coca Cola,39500,2.0,Digital Wallet
-ORD_999772,CUST_017,Main Dishes,Salmon,284400,2.0,Credit Card
-ORD_728803,CUST_075,Side Dishes,Grilled Vegetables,79000,5.0,Credit Card
-ORD_412456,CUST_002,Main Dishes,Grilled Chicken,237000,4.0,Digital Wallet
-ORD_118449,CUST_018,Starters,Beef Chili,110600,5.0,Credit Card
-ORD_436035,CUST_028,Main Dishes,Vegetarian Platter,221200,5.0,Cash
-ORD_888237,CUST_053,Starters,Nachos Grande,158000,5.0,Credit Card
-ORD_970805,CUST_051,Side Dishes,Side Salad,47400,3.0,Digital Wallet
-ORD_869228,CUST_099,Drinks,Water,15800,3.0,Credit Card
-ORD_144043,CUST_004,Side Dishes,Side Salad,47400,4.0,Digital Wallet
-ORD_572727,CUST_099,Side Dishes,Onion Rings,79000,1.0,Cash
-ORD_616642,CUST_043,Side Dishes,Grilled Vegetables,79000,1.0,Cash
-ORD_132964,CUST_077,Side Dishes,Mashed Potatoes,63200,2.0,Cash
-ORD_764058,CUST_043,Main Dishes,Grilled Chicken,237000,3.0,Digital Wallet
-ORD_387901,CUST_029,Desserts,Ice Cream,79000,5.0,Cash
-ORD_818249,CUST_027,Side Dishes,Grilled Vegetables,79000,5.0,Credit Card
-ORD_732450,CUST_004,Side Dishes,Side Salad,47400,4.0,Cash
-ORD_609102,CUST_074,Drinks,Iced Tea,39500,5.0,Cash
-ORD_649423,CUST_093,Starters,French Fries,63200,1.0,Digital Wallet
-ORD_786734,CUST_050,Desserts,Chocolate Cake,94800,3.0,Credit Card
-ORD_955347,CUST_022,Starters,Cheese Fries,79000,3.0,Credit Card
-ORD_921409,CUST_042,Side Dishes,Garlic Bread,63200,1.0,Digital Wallet
-ORD_791067,CUST_052,Desserts,Fruit Salad,63200,3.0,Credit Card
-ORD_433088,CUST_019,Desserts,Ice Cream,79000,5.0,Cash
-ORD_816679,CUST_023,Starters,French Fries,63200,5.0,Credit Card
-ORD_669233,CUST_013,Drinks,Orange Juice,47400,5.0,Credit Card
-ORD_573239,CUST_001,Drinks,Water,15800,2.0,Digital Wallet
-ORD_589811,CUST_002,Starters,Cheese Fries,79000,5.0,Credit Card
-ORD_794099,CUST_045,Main Dishes,Steak,316000,3.0,Cash
-ORD_735135,CUST_033,Side Dishes,Mashed Potatoes,63200,1.0,Digital Wallet
-ORD_729374,CUST_085,Starters,French Fries,63200,4.0,Cash
-ORD_999939,CUST_033,Side Dishes,Mashed Potatoes,63200,3.0,Digital Wallet
-ORD_153415,CUST_063,Main Dishes,Pasta Alfredo,189600,3.0,Digital Wallet
-ORD_224730,CUST_026,Desserts,Chocolate Cake,94800,5.0,Digital Wallet
-ORD_930569,CUST_036,Starters,Cheese Fries,79000,3.0,Digital Wallet
-ORD_321522,CUST_001,Side Dishes,Mashed Potatoes,63200,2.0,Cash
-ORD_359077,CUST_010,Drinks,Lemonade,47400,2.0,Credit Card
-ORD_546027,CUST_092,Desserts,Chocolate Cake,94800,4.0,Digital Wallet
-ORD_642702,CUST_082,Desserts,Brownie,94800,2.0,Credit Card
-ORD_217030,CUST_021,Starters,Chicken Melt,126400,4.0,Cash
-ORD_206617,CUST_057,Starters,Sweet Potato Fries,79000,3.0,Cash
-ORD_211904,CUST_093,Side Dishes,Garlic Bread,63200,3.0,Cash
-ORD_907068,CUST_090,Side Dishes,Mashed Potatoes,63200,2.0,Cash
-ORD_566939,CUST_076,Desserts,Fruit Salad,63200,5.0,Digital Wallet
-ORD_204681,CUST_038,Main Dishes,Steak,316000,3.0,Digital Wallet
-ORD_986358,CUST_017,Main Dishes,Salmon,284400,2.0,Credit Card
-ORD_230233,CUST_088,Desserts,Fruit Salad,63200,2.0,Cash
-ORD_455253,CUST_095,Side Dishes,Mashed Potatoes,63200,5.0,Cash
-ORD_929630,CUST_061,Desserts,Fruit Salad,63200,3.0,Credit Card
-ORD_718213,CUST_021,Side Dishes,Side Salad,47400,5.0,Cash
-ORD_101531,CUST_095,Desserts,Brownie,94800,4.0,Credit Card
-ORD_952936,CUST_075,Drinks,Orange Juice,47400,1.0,Cash
-ORD_979463,CUST_066,Main Dishes,Grilled Chicken,237000,2.0,Digital Wallet
-ORD_921148,CUST_051,Desserts,Cheesecake,110600,3.0,Cash
-ORD_147356,CUST_081,Starters,Chicken Melt,126400,5.0,Digital Wallet
-ORD_588485,CUST_028,Main Dishes,Grilled Chicken,237000,3.0,Digital Wallet
-ORD_495079,CUST_081,Side Dishes,Side Salad,47400,1.0,Credit Card
-ORD_535705,CUST_051,Drinks,Lemonade,47400,2.0,Cash
-ORD_242945,CUST_004,Drinks,Water,15800,5.0,Digital Wallet
-ORD_542737,CUST_021,Desserts,Chocolate Cake,94800,3.0,Credit Card
-ORD_976297,CUST_054,Side Dishes,Side Salad,47400,1.0,Digital Wallet
-ORD_716723,CUST_020,Desserts,Ice Cream,79000,1.0,Credit Card
-ORD_210399,CUST_049,Drinks,Coca Cola,39500,2.0,Cash
-ORD_189902,CUST_052,Side Dishes,Side Salad,47400,5.0,Cash
-ORD_671854,CUST_055,Main Dishes,Vegetarian Platter,221200,4.0,Digital Wallet
+Order ID,Customer ID,Category,Item,Price,Quantity,Order Total,Payment Method
+ORD_705844,CUST_092,Side Dishes,Side Salad,47400,1.0,47400,Credit Card
+ORD_338528,CUST_021,Side Dishes,Mashed Potatoes,63200,3.0,189600,Digital Wallet
+ORD_443849,CUST_029,Main Dishes,Grilled Chicken,237000,4.0,948000,Credit Card
+ORD_648269,CUST_031,Main Dishes,Pasta Alfredo,189600,4.0,758400,Cash
+ORD_381680,CUST_031,Main Dishes,Salmon,284400,5.0,1422000,Digital Wallet
+ORD_270994,CUST_071,Side Dishes,Garlic Bread,63200,5.0,316000,Credit Card
+ORD_117003,CUST_021,Desserts,Brownie,94800,2.0,189600,Credit Card
+ORD_726419,CUST_025,Main Dishes,Salmon,284400,5.0,1422000,Cash
+ORD_754176,CUST_047,Main Dishes,Salmon,284400,1.0,284400,Cash
+ORD_330351,CUST_057,Starters,Sweet Potato Fries,79000,4.0,316000,Credit Card
+ORD_458560,CUST_017,Side Dishes,Mashed Potatoes,63200,3.0,189600,Cash
+ORD_639569,CUST_024,Drinks,Lemonade,47400,2.0,94800,Cash
+ORD_736695,CUST_067,Main Dishes,Grilled Chicken,237000,3.0,711000,Digital Wallet
+ORD_283207,CUST_090,Side Dishes,Side Salad,47400,2.0,94800,Digital Wallet
+ORD_744179,CUST_009,Desserts,Brownie,94800,3.0,284400,Credit Card
+ORD_845047,CUST_052,Main Dishes,Vegetarian Platter,221200,4.0,884800,Digital Wallet
+ORD_862247,CUST_071,Side Dishes,Side Salad,47400,4.0,189600,Credit Card
+ORD_356735,CUST_055,Main Dishes,Salmon,284400,4.0,1137600,Credit Card
+ORD_333540,CUST_055,Drinks,Orange Juice,47400,4.0,189600,Digital Wallet
+ORD_415215,CUST_094,Desserts,Chocolate Cake,94800,5.0,474000,Cash
+ORD_375110,CUST_041,Drinks,Coca Cola,39500,1.0,39500,Digital Wallet
+ORD_117414,CUST_055,Side Dishes,Grilled Vegetables,79000,4.0,316000,Credit Card
+ORD_918434,CUST_096,Main Dishes,Vegetarian Platter,221200,3.0,663600,Digital Wallet
+ORD_220701,CUST_040,Drinks,Coca Cola,39500,4.0,158000,Digital Wallet
+ORD_647762,CUST_021,Main Dishes,Pasta Alfredo,189600,1.0,189600,Credit Card
+ORD_427480,CUST_052,Starters,Cheese Fries,79000,1.0,79000,Cash
+ORD_225136,CUST_008,Starters,Cheese Fries,79000,3.0,237000,Cash
+ORD_791116,CUST_007,Desserts,Chocolate Cake,94800,4.0,379200,Digital Wallet
+ORD_418736,CUST_091,Starters,Beef Chili,110600,5.0,553000,Cash
+ORD_438442,CUST_011,Side Dishes,Grilled Vegetables,79000,5.0,395000,Credit Card
+ORD_300241,CUST_040,Starters,Chicken Melt,126400,4.0,505600,Credit Card
+ORD_130258,CUST_042,Desserts,Brownie,94800,2.0,189600,Cash
+ORD_893229,CUST_049,Main Dishes,Pasta Alfredo,189600,2.0,379200,Cash
+ORD_175452,CUST_053,Drinks,Lemonade,47400,3.0,142200,Digital Wallet
+ORD_280294,CUST_008,Desserts,Fruit Salad,63200,2.0,126400,Digital Wallet
+ORD_708630,CUST_081,Main Dishes,Pasta Alfredo,189600,1.0,189600,Credit Card
+ORD_479066,CUST_054,Starters,French Fries,63200,4.0,252800,Digital Wallet
+ORD_120337,CUST_093,Main Dishes,Grilled Chicken,237000,4.0,948000,Credit Card
+ORD_152465,CUST_071,Starters,Chicken Melt,126400,1.0,126400,Cash
+ORD_108842,CUST_031,Starters,Sweet Potato Fries,79000,2.0,158000,Credit Card
+ORD_473682,CUST_014,Drinks,Coca Cola,39500,2.0,79000,Credit Card
+ORD_330617,CUST_088,Desserts,Ice Cream,79000,3.0,237000,Cash
+ORD_155188,CUST_084,Side Dishes,Mashed Potatoes,63200,4.0,252800,Digital Wallet
+ORD_640883,CUST_057,Desserts,Cheesecake,110600,1.0,110600,Cash
+ORD_650189,CUST_013,Desserts,Chocolate Cake,94800,1.0,94800,Cash
+ORD_625401,CUST_100,Side Dishes,Mashed Potatoes,63200,4.0,252800,Cash
+ORD_418032,CUST_094,Main Dishes,Grilled Chicken,237000,3.0,711000,Credit Card
+ORD_763806,CUST_078,Main Dishes,Grilled Chicken,237000,2.0,474000,Credit Card
+ORD_578794,CUST_098,Side Dishes,Grilled Vegetables,79000,5.0,395000,Cash
+ORD_208139,CUST_004,Desserts,Cheesecake,110600,1.0,110600,Cash
+ORD_864219,CUST_040,Side Dishes,Mashed Potatoes,63200,4.0,252800,Credit Card
+ORD_828507,CUST_090,Drinks,Iced Tea,39500,5.0,197500,Credit Card
+ORD_696101,CUST_035,Side Dishes,Grilled Vegetables,79000,2.0,158000,Cash
+ORD_136075,CUST_080,Starters,Chicken Melt,126400,3.0,379200,Credit Card
+ORD_882768,CUST_020,Starters,Sweet Potato Fries,79000,2.0,158000,Credit Card
+ORD_237978,CUST_007,Main Dishes,Pasta Alfredo,189600,3.0,568800,Cash
+ORD_728161,CUST_038,Starters,Sweet Potato Fries,79000,4.0,316000,Digital Wallet
+ORD_270218,CUST_037,Main Dishes,Grilled Chicken,237000,5.0,1185000,Digital Wallet
+ORD_387616,CUST_085,Main Dishes,Grilled Chicken,237000,3.0,711000,Cash
+ORD_205058,CUST_043,Side Dishes,Mashed Potatoes,63200,5.0,316000,Credit Card
+ORD_761221,CUST_034,Drinks,Iced Tea,39500,2.0,79000,Cash
+ORD_514854,CUST_060,Drinks,Orange Juice,47400,2.0,94800,Credit Card
+ORD_727365,CUST_036,Side Dishes,Garlic Bread,63200,5.0,316000,Credit Card
+ORD_837763,CUST_042,Side Dishes,Mashed Potatoes,63200,4.0,252800,Digital Wallet
+ORD_176616,CUST_051,Side Dishes,Garlic Bread,63200,2.0,126400,Cash
+ORD_805646,CUST_001,Starters,French Fries,63200,5.0,316000,Cash
+ORD_343882,CUST_020,Side Dishes,Side Salad,47400,5.0,237000,Credit Card
+ORD_444692,CUST_045,Side Dishes,Side Salad,47400,5.0,237000,Cash
+ORD_500318,CUST_024,Starters,Chicken Melt,126400,5.0,632000,Cash
+ORD_275854,CUST_033,Desserts,Ice Cream,79000,2.0,158000,Credit Card
+ORD_323443,CUST_041,Desserts,Chocolate Cake,94800,3.0,284400,Cash
+ORD_877261,CUST_036,Drinks,Coca Cola,39500,1.0,39500,Credit Card
+ORD_170375,CUST_021,Side Dishes,Side Salad,47400,2.0,94800,Digital Wallet
+ORD_177847,CUST_066,Side Dishes,Mashed Potatoes,63200,3.0,189600,Digital Wallet
+ORD_539782,CUST_060,Side Dishes,Grilled Vegetables,79000,1.0,79000,Credit Card
+ORD_106904,CUST_082,Desserts,Ice Cream,79000,1.0,79000,Digital Wallet
+ORD_772436,CUST_031,Drinks,Coca Cola,39500,4.0,158000,Digital Wallet
+ORD_218145,CUST_005,Side Dishes,Mashed Potatoes,63200,4.0,252800,Credit Card
+ORD_440469,CUST_080,Main Dishes,Pasta Alfredo,189600,3.0,568800,Cash
+ORD_104960,CUST_040,Main Dishes,Pasta Alfredo,189600,1.0,189600,Digital Wallet
+ORD_104466,CUST_050,Drinks,Orange Juice,47400,1.0,47400,Cash
+ORD_631686,CUST_099,Main Dishes,Pasta Alfredo,189600,2.0,379200,Credit Card
+ORD_778015,CUST_089,Main Dishes,Pasta Alfredo,189600,1.0,189600,Credit Card
+ORD_301667,CUST_029,Desserts,Brownie,94800,3.0,284400,Digital Wallet
+ORD_871279,CUST_045,Main Dishes,Pasta Alfredo,189600,5.0,948000,Digital Wallet
+ORD_302668,CUST_026,Main Dishes,Grilled Chicken,237000,3.0,711000,Cash
+ORD_161991,CUST_048,Starters,Beef Chili,110600,5.0,553000,Cash
+ORD_761978,CUST_056,Main Dishes,Grilled Chicken,237000,2.0,474000,Digital Wallet
+ORD_181882,CUST_062,Desserts,Chocolate Cake,94800,3.0,284400,Cash
+ORD_696255,CUST_055,Starters,Nachos Grande,158000,1.0,158000,Digital Wallet
+ORD_749532,CUST_063,Drinks,Water,15800,5.0,79000,Credit Card
+ORD_378802,CUST_094,Side Dishes,Garlic Bread,63200,4.0,252800,Digital Wallet
+ORD_537413,CUST_036,Starters,Beef Chili,110600,2.0,221200,Digital Wallet
+ORD_820759,CUST_034,Drinks,Orange Juice,47400,3.0,142200,Credit Card
+ORD_190938,CUST_038,Starters,Beef Chili,110600,2.0,221200,Digital Wallet
+ORD_490302,CUST_097,Main Dishes,Pasta Alfredo,189600,3.0,568800,Cash
+ORD_322835,CUST_012,Drinks,Orange Juice,47400,1.0,47400,Cash
+ORD_991912,CUST_019,Drinks,Iced Tea,39500,5.0,197500,Cash
+ORD_396448,CUST_074,Drinks,Water,15800,2.0,31600,Credit Card
+ORD_515941,CUST_095,Starters,French Fries,63200,5.0,316000,Digital Wallet
+ORD_684439,CUST_068,Starters,Cheese Fries,79000,1.0,79000,Cash
+ORD_904504,CUST_093,Side Dishes,Grilled Vegetables,79000,4.0,316000,Cash
+ORD_560561,CUST_013,Side Dishes,Onion Rings,79000,1.0,79000,Digital Wallet
+ORD_165348,CUST_073,Desserts,Ice Cream,79000,4.0,316000,Cash
+ORD_110621,CUST_061,Drinks,Iced Tea,39500,2.0,79000,Digital Wallet
+ORD_142238,CUST_082,Side Dishes,Grilled Vegetables,79000,4.0,316000,Credit Card
+ORD_356583,CUST_037,Desserts,Ice Cream,79000,2.0,158000,Credit Card
+ORD_357330,CUST_023,Main Dishes,Grilled Chicken,237000,5.0,1185000,Digital Wallet
+ORD_298049,CUST_013,Drinks,Orange Juice,47400,4.0,189600,Credit Card
+ORD_439041,CUST_029,Main Dishes,Steak,316000,3.0,948000,Digital Wallet
+ORD_714187,CUST_026,Desserts,Chocolate Cake,94800,3.0,284400,Digital Wallet
+ORD_719718,CUST_037,Desserts,Brownie,94800,2.0,189600,Cash
+ORD_333412,CUST_089,Main Dishes,Pasta Alfredo,189600,5.0,948000,Digital Wallet
+ORD_809926,CUST_034,Starters,Cheese Fries,79000,3.0,237000,Cash
+ORD_100517,CUST_074,Starters,Chicken Melt,126400,5.0,632000,Credit Card
+ORD_203174,CUST_094,Desserts,Fruit Salad,63200,3.0,189600,Credit Card
+ORD_363633,CUST_076,Side Dishes,Garlic Bread,63200,5.0,316000,Credit Card
+ORD_369689,CUST_058,Starters,Sweet Potato Fries,79000,1.0,79000,Cash
+ORD_150300,CUST_011,Desserts,Fruit Salad,63200,1.0,63200,Digital Wallet
+ORD_838505,CUST_029,Desserts,Chocolate Cake,94800,1.0,94800,Cash
+ORD_626227,CUST_038,Desserts,Ice Cream,79000,1.0,79000,Credit Card
+ORD_410162,CUST_054,Starters,Cheese Fries,79000,2.0,158000,Digital Wallet
+ORD_540613,CUST_042,Drinks,Lemonade,47400,5.0,237000,Digital Wallet
+ORD_715554,CUST_029,Side Dishes,Side Salad,47400,2.0,94800,Credit Card
+ORD_199989,CUST_068,Starters,Chicken Melt,126400,5.0,632000,Credit Card
+ORD_893713,CUST_089,Side Dishes,Grilled Vegetables,79000,5.0,395000,Digital Wallet
+ORD_780854,CUST_097,Side Dishes,Side Salad,47400,3.0,142200,Digital Wallet
+ORD_389349,CUST_028,Starters,French Fries,63200,4.0,252800,Cash
+ORD_299419,CUST_061,Main Dishes,Vegetarian Platter,221200,5.0,1106000,Cash
+ORD_386546,CUST_093,Main Dishes,Steak,316000,3.0,948000,Digital Wallet
+ORD_932686,CUST_070,Drinks,Lemonade,47400,2.0,94800,Digital Wallet
+ORD_443479,CUST_099,Desserts,Ice Cream,79000,4.0,316000,Cash
+ORD_232289,CUST_096,Desserts,Brownie,94800,4.0,379200,Credit Card
+ORD_167843,CUST_034,Drinks,Lemonade,47400,5.0,237000,Credit Card
+ORD_970834,CUST_008,Desserts,Cheesecake,110600,4.0,442400,Cash
+ORD_731848,CUST_067,Drinks,Coca Cola,39500,2.0,79000,Digital Wallet
+ORD_999772,CUST_017,Main Dishes,Salmon,284400,2.0,568800,Credit Card
+ORD_728803,CUST_075,Side Dishes,Grilled Vegetables,79000,5.0,395000,Credit Card
+ORD_412456,CUST_002,Main Dishes,Grilled Chicken,237000,4.0,948000,Digital Wallet
+ORD_118449,CUST_018,Starters,Beef Chili,110600,5.0,553000,Credit Card
+ORD_436035,CUST_028,Main Dishes,Vegetarian Platter,221200,5.0,1106000,Cash
+ORD_888237,CUST_053,Starters,Nachos Grande,158000,5.0,790000,Credit Card
+ORD_970805,CUST_051,Side Dishes,Side Salad,47400,3.0,142200,Digital Wallet
+ORD_869228,CUST_099,Drinks,Water,15800,3.0,47400,Credit Card
+ORD_144043,CUST_004,Side Dishes,Side Salad,47400,4.0,189600,Digital Wallet
+ORD_572727,CUST_099,Side Dishes,Onion Rings,79000,1.0,79000,Cash
+ORD_616642,CUST_043,Side Dishes,Grilled Vegetables,79000,1.0,79000,Cash
+ORD_132964,CUST_077,Side Dishes,Mashed Potatoes,63200,2.0,126400,Cash
+ORD_764058,CUST_043,Main Dishes,Grilled Chicken,237000,3.0,711000,Digital Wallet
+ORD_387901,CUST_029,Desserts,Ice Cream,79000,5.0,395000,Cash
+ORD_818249,CUST_027,Side Dishes,Grilled Vegetables,79000,5.0,395000,Credit Card
+ORD_732450,CUST_004,Side Dishes,Side Salad,47400,4.0,189600,Cash
+ORD_609102,CUST_074,Drinks,Iced Tea,39500,5.0,197500,Cash
+ORD_649423,CUST_093,Starters,French Fries,63200,1.0,63200,Digital Wallet
+ORD_786734,CUST_050,Desserts,Chocolate Cake,94800,3.0,284400,Credit Card
+ORD_955347,CUST_022,Starters,Cheese Fries,79000,3.0,237000,Credit Card
+ORD_921409,CUST_042,Side Dishes,Garlic Bread,63200,1.0,63200,Digital Wallet
+ORD_791067,CUST_052,Desserts,Fruit Salad,63200,3.0,189600,Credit Card
+ORD_433088,CUST_019,Desserts,Ice Cream,79000,5.0,395000,Cash
+ORD_816679,CUST_023,Starters,French Fries,63200,5.0,316000,Credit Card
+ORD_669233,CUST_013,Drinks,Orange Juice,47400,5.0,237000,Credit Card
+ORD_573239,CUST_001,Drinks,Water,15800,2.0,31600,Digital Wallet
+ORD_589811,CUST_002,Starters,Cheese Fries,79000,5.0,395000,Credit Card
+ORD_794099,CUST_045,Main Dishes,Steak,316000,3.0,948000,Cash
+ORD_735135,CUST_033,Side Dishes,Mashed Potatoes,63200,1.0,63200,Digital Wallet
+ORD_729374,CUST_085,Starters,French Fries,63200,4.0,252800,Cash
+ORD_999939,CUST_033,Side Dishes,Mashed Potatoes,63200,3.0,189600,Digital Wallet
+ORD_153415,CUST_063,Main Dishes,Pasta Alfredo,189600,3.0,568800,Digital Wallet
+ORD_224730,CUST_026,Desserts,Chocolate Cake,94800,5.0,474000,Digital Wallet
+ORD_930569,CUST_036,Starters,Cheese Fries,79000,3.0,237000,Digital Wallet
+ORD_321522,CUST_001,Side Dishes,Mashed Potatoes,63200,2.0,126400,Cash
+ORD_359077,CUST_010,Drinks,Lemonade,47400,2.0,94800,Credit Card
+ORD_546027,CUST_092,Desserts,Chocolate Cake,94800,4.0,379200,Digital Wallet
+ORD_642702,CUST_082,Desserts,Brownie,94800,2.0,189600,Credit Card
+ORD_217030,CUST_021,Starters,Chicken Melt,126400,4.0,505600,Cash
+ORD_206617,CUST_057,Starters,Sweet Potato Fries,79000,3.0,237000,Cash
+ORD_211904,CUST_093,Side Dishes,Garlic Bread,63200,3.0,189600,Cash
+ORD_907068,CUST_090,Side Dishes,Mashed Potatoes,63200,2.0,126400,Cash
+ORD_566939,CUST_076,Desserts,Fruit Salad,63200,5.0,316000,Digital Wallet
+ORD_204681,CUST_038,Main Dishes,Steak,316000,3.0,948000,Digital Wallet
+ORD_986358,CUST_017,Main Dishes,Salmon,284400,2.0,568800,Credit Card
+ORD_230233,CUST_088,Desserts,Fruit Salad,63200,2.0,126400,Cash
+ORD_455253,CUST_095,Side Dishes,Mashed Potatoes,63200,5.0,316000,Cash
+ORD_929630,CUST_061,Desserts,Fruit Salad,63200,3.0,189600,Credit Card
+ORD_718213,CUST_021,Side Dishes,Side Salad,47400,5.0,237000,Cash
+ORD_101531,CUST_095,Desserts,Brownie,94800,4.0,379200,Credit Card
+ORD_952936,CUST_075,Drinks,Orange Juice,47400,1.0,47400,Cash
+ORD_979463,CUST_066,Main Dishes,Grilled Chicken,237000,2.0,474000,Digital Wallet
+ORD_921148,CUST_051,Desserts,Cheesecake,110600,3.0,331800,Cash
+ORD_147356,CUST_081,Starters,Chicken Melt,126400,5.0,632000,Digital Wallet
+ORD_588485,CUST_028,Main Dishes,Grilled Chicken,237000,3.0,711000,Digital Wallet
+ORD_495079,CUST_081,Side Dishes,Side Salad,47400,1.0,47400,Credit Card
+ORD_535705,CUST_051,Drinks,Lemonade,47400,2.0,94800,Cash
+ORD_242945,CUST_004,Drinks,Water,15800,5.0,79000,Digital Wallet
+ORD_542737,CUST_021,Desserts,Chocolate Cake,94800,3.0,284400,Credit Card
+ORD_976297,CUST_054,Side Dishes,Side Salad,47400,1.0,47400,Digital Wallet
+ORD_716723,CUST_020,Desserts,Ice Cream,79000,1.0,79000,Credit Card
+ORD_210399,CUST_049,Drinks,Coca Cola,39500,2.0,79000,Cash
+ORD_189902,CUST_052,Side Dishes,Side Salad,47400,5.0,237000,Cash
+ORD_671854,CUST_055,Main Dishes,Vegetarian Platter,221200,4.0,884800,Digital Wallet
