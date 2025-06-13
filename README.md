@@ -90,3 +90,18 @@ Fungsi yang dipakai:
 3. Manajemen Stok: Menambahkan atau mengurangi stok barang.
 4. Cetak Struk dan Pembayaran: Mendukung berbagai metode pembayaran dan mencetak struk sederhana.
 5. Laporan Penjualan: Menampilkan rekap jumlah barang terjual dan total pendapatan.
+
+## INSTALASI
+1. Download seluruh file dan folder yang tersedia
+2. Taruh semua file di satu direktori yang sama
+3. Buka main_branch.py menggunakan VScode
+4. Run-all program
+5. Pilih menu yang diinginkan
+
+## Penjelasan Menu
+1. Lihat Menu:
+2. 
+3. c
+4. d
+5. Re
+
