@@ -6,6 +6,14 @@ Aplikasi Kasir Kita adalah program yang dirancang untuk membantu pelaku usaha da
 
 ## Functional Program
 FP adalah paradigma pemrograman yang berfokus pada penggunaan fungsi-fungsi murni (pure functions), di mana data bersifat immutable (tidak diubah setelah dibuat) dan tidak ada efek samping (side effect).
+
+Prinsip FP:
+1.  Pure Function (Fungsi Murni) adalah fungsi yang selalu memberikan output yang sama untuk input yang sama dan tidak menghasilkan efek samping (side effect) seperti mengubah data di luar dirinya.
+2.  Immutability (Data Tidak Bisa Diubah) adalah prinsip di mana data tidak diubah setelah dibuat. Jika kamu ingin mengubah data, maka kamu harus membuat salinan/modifikasi baru, bukan mengubah nilai aslinya.
+3.  Higher-Order Function (Fungsi Tingkat Tinggi) function adalah fungsi yang menerima fungsi lain sebagai argumen, atau mengembalikan fungsi sebagai hasil. Ini memungkinkan kita untuk membuat logika yang lebih fleksibel dan reusable.
+   
+
+Fungsi yang dipakai:
 1. hitung_total_pemesanan(daftar_item):
    Menghitung total harga semua item dalam pemesanan.
 2. analisis_tren_item(data_penjualan):
@@ -15,27 +23,12 @@ FP adalah paradigma pemrograman yang berfokus pada penggunaan fungsi-fungsi murn
 OOP adalah pemrograman yang berfokus pada penggunaan objek—struktur yang menggabungkan data dan fungsi yang berkaitan—untuk membangun program yang modular, terorganisir, dan mudah dipelihara.
 
 Prinsip OOP:
-1. Encapsulation (Enkapsulasi)
-   Enkapsulasi adalah proses menyatukan data (atribut) dan perilaku (fungsi/metode) ke dalam satu kesatuan objek, serta menyembunyikan data agar tidak bisa diakses langsung dari luar. Tujuannya
+1. Encapsulation (Enkapsulasi) adalah proses menyatukan data (atribut) dan perilaku (fungsi/metode) ke dalam satu kesatuan objek, serta menyembunyikan data agar tidak bisa diakses langsung dari luar. Tujuannya
    adalah untuk menjaga keamanan data dan membatasi akses langsung ke atribut.
 
-   |Contoh code dari enkapsulasi adalah:
-
-   |class itemMenu:
-
-   |def init(self, nama, harga):
-
-   |self.nama = nama
-
-   |self.__harga = harga # disembunyikan dari luar class
-
-
-   Kenapa kode itemMenu termasuk prinsip enkapsulasi?
-
-   Karena seluruh data penting seperti nama, jenis, harga, dan stok disimpan di dalam objek itemMenu, sehingga data tersebut tidak disebar bebas di luar class. Data ini hanya bisa diakses dan
-   dimodifikasi melalui metode resmi seperti tambahStok() dan kurangiStok(). Dengan begitu, pengguna tidak bisa sembarangan mengubah nilai stok langsung (misalnya item.stok -= 5), melainkan
-   harus mengikuti prosedur yang sudah disediakan oleh class. Selain itu, di dalam metode seperti kurangiStok(), terdapat proses validasi (pengecekan apakah stok mencukupi) sebelum data diubah
-   Hal ini menunjukkan bahwa akses terhadap data dikendalikan dan diamankan, yang merupakan inti dari prinsip enkapsulasi.
+2. Inheritance (Pewarisan) adalah prinsip OOP yang memungkinkan sebuah class (anak/turunan) mewarisi atribut dan metode dari class lain (induk).
+3. Polymorphism (Polimorfisme) adalah prinsip OOP yang memungkinkan satu nama metode digunakan oleh banyak class, tapi perilakunya bisa berbeda tergantung objeknya.
+4. Abstraction (Abstraksi) adalah prinsip OOP yang menyembunyikan detail teknis dari suatu objek dan hanya menampilkan bagian penting yang perlu diketahui pengguna.
    
 Fungsi yang dipakai:
 1. class itemMenu: Mewakili sebuah item/menu yang dijual.
