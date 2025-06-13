@@ -2,73 +2,18 @@ import streamlit as st
 import pandas as pd
 from streamlit_option_menu import option_menu
 import matplotlib.pyplot as plt
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
 import numpy as np
-# import pickle
+from model import preprocessing_rf, split_data, rf_model
 
-# with open("rf_churn_model.pkl", "rb") as f:
-#     model = pickle.load(f)
 train_url = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/dataset/Clean_Data_Restaurant_Final.csv'
 df = pd.read_csv(train_url)
-def rf():
-    drop_cols = ['Unnamed: 0', 'Order ID', 'Order Date', 'Bulan', 'Last Visit Date', 'Customer ID']
-    df.drop(columns=[col for col in drop_cols if col in df.columns], inplace=True)
-    
-    encoders = {}
-    if 'Churn' in df.columns:
-        le = LabelEncoder()
-        df['Churn'] = le.fit_transform(df['Churn'])
+       
 
-    for col in ['Category', 'Payment Method', 'Item']:
-        le = LabelEncoder()
-        df[col] = le.fit_transform(df[col])
-        
-
-rf()
+preprocessing_rf(df)
 # Salin data asli
 data = df.copy()
-
-# Pisahkan fitur dan target
-X = data.drop(columns='Churn')
-y = data['Churn'].astype(int)
-
-# Bagi data menjadi data train dan test
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
-)
-
-def rf_model():
-    from sklearn.model_selection import GridSearchCV
-    rf = RandomForestClassifier(random_state=42, class_weight='balanced')
-
-    param_grid = {
-        'n_estimators': [100, 200, 300],
-        'max_depth': [None, 10, 20, 30],
-        'min_samples_split': [2, 5, 10],
-        'min_samples_leaf': [1, 2, 4]
-    }
-
-    grid_search = GridSearchCV(
-        estimator=rf,
-        param_grid=param_grid,
-        cv=5,  # 5-fold cross validation
-        n_jobs=-1,
-        verbose=1,
-        scoring='f1_weighted'
-    )
-
-    # Jalankan grid search
-    grid_search.fit(X_train, y_train)
-
-    # Evaluasi model terbaik di test set
-    best_model = grid_search.best_estimator_
-    y_pred = best_model.predict(X_test)
-
-    return best_model
-
-best_model = rf_model()
+X_train, X_test, y_train, y_test = split_data(df)
+best_model = rf_model(X_train, X_test, y_train)
 
 ########################################
 
@@ -79,7 +24,7 @@ st.write("Selamat datang di aplikasi KasirKita.")
 df = pd.read_csv(r"D:\PASD\Tugas-Besar-PASD---Kelompok-Lima-Watt\data_gabungan.csv")
 # Membaca CSV menjadi DataFrame
 if df is not None:
-    rf()
+    preprocessing_rf(df)
     if 'Churn' in df.columns:
         df = df.drop(columns=['Churn'])
     

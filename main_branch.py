@@ -19,8 +19,6 @@ def analisis_tren_item(data_penjualan):
     item_terlaris = max(penjualan, key=penjualan.get)
     return item_terlaris
 
-<<<<<<< Updated upstream
-=======
 #Object Oriented Programming
 
 class itemMenu:
@@ -373,4 +371,3 @@ if __name__ == "__main__":
         print("Gagal memuat menu restoran atau DataFrame. Aplikasi tidak dapat dimulai.")
 
 
->>>>>>> Stashed changes
