@@ -206,13 +206,8 @@ def update_df_menu_with_sales(current_df_menu, new_sales_log_entries):
 
 def download_data(dataframe, filename='data_gabungan.csv'):
     try:
-        if filename.endswith('.csv'):
             dataframe.to_csv(filename, index=False)
-            print(f"Data berhasi disimpan ke {filename}.CSV")
-        elif filename.endswith('.xlsx'):
-            print(f"Data berhasi disimpan ke {filename}.XLSX")
-        else:
-            print(f"Data berhasi disimpan ke {filename}.XLSX")
+            print(f"Data berhasil disimpan ke {filename}")
     except Exception as e:
         print(f"\nGagal menyimpan data: {e}")
 
@@ -357,7 +352,7 @@ def run_app(menu_restoran, df_menu_original):
                 download_data(current_df_menu_for_concat, filename)
                 import subprocess
 
-                subprocess.run(["streamlit", "run", "dashboard.py"])
+                subprocess.run(["streamlit", "run", "ui.py"])
                 print("Program selesai")
                 break
         else:
@@ -365,7 +360,7 @@ def run_app(menu_restoran, df_menu_original):
 
 
 if __name__ == "__main__":
-    url_menu = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/Cleaned_200_Price_Data.csv'
+    url_menu = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/dataset/Cleaned_200_Price_Data.csv'
 
     menu_restoran, initial_df_menu = load_data(url_menu)
 
