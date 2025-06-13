@@ -10,18 +10,21 @@ import numpy as np
 
 # with open("rf_churn_model.pkl", "rb") as f:
 #     model = pickle.load(f)
-df = pd.read_csv("D:\PASD\Clean_Data_Restaurant_Final.csv")
+train_url = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/dataset/Clean_Data_Restaurant_Final.csv'
+df = pd.read_csv(train_url)
 def rf():
-    drop_cols = ['Unnamed: 0', 'Order ID', 'Order Date', 'Last Visit Date', 'Item', 'Customer ID']
-    df.drop(columns=drop_cols, inplace=True)
-    df['Bulan'] = df['Bulan'].str.extract(r'-(\d{2})').astype(int)
-    df['Bulan'] = np.ceil(df['Bulan'] / 3).astype(int)
+    drop_cols = ['Unnamed: 0', 'Order ID', 'Order Date', 'Bulan', 'Last Visit Date', 'Customer ID']
+    df.drop(columns=[col for col in drop_cols if col in df.columns], inplace=True)
+    
     encoders = {}
+    if 'Churn' in df.columns:
+        le = LabelEncoder()
+        df['Churn'] = le.fit_transform(df['Churn'])
 
-    for col in ['Category', 'Payment Method', 'Churn']:
+    for col in ['Category', 'Payment Method', 'Item']:
         le = LabelEncoder()
         df[col] = le.fit_transform(df[col])
-        encoders[col] = le  # Simpan encoder untuk tiap kolom
+        
 
 rf()
 # Salin data asli
@@ -58,9 +61,6 @@ def rf_model():
 
     # Jalankan grid search
     grid_search.fit(X_train, y_train)
-    # Cetak hasil terbaik
-    print("Best Parameters:", grid_search.best_params_)
-    print("\nBest Score:", grid_search.best_score_)
 
     # Evaluasi model terbaik di test set
     best_model = grid_search.best_estimator_
@@ -74,12 +74,11 @@ best_model = rf_model()
 
 st.set_page_config(page_title="KasirKita", layout="wide")
 st.title("Analisis KasirKita")
-st.write("Selamat datang di aplikasi KasirKita. Silahkan Upload file untuk melihat hasil analisis.")
+st.write("Selamat datang di aplikasi KasirKita.")
 
-uploaded_file = st.file_uploader("Pilih file CSV", type="csv")
+df = pd.read_csv(r"D:\PASD\Tugas-Besar-PASD---Kelompok-Lima-Watt\data_gabungan.csv")
 # Membaca CSV menjadi DataFrame
-if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
+if df is not None:
     rf()
     if 'Churn' in df.columns:
         df = df.drop(columns=['Churn'])
@@ -166,4 +165,4 @@ if uploaded_file is not None:
             st.warning("Kolom 'item' atau 'quantity' tidak ditemukan.")
 
 else:
-    st.info("Silakan upload file CSV terlebih dahulu untuk mengakses fitur.")
+    st.info("Tidak ada file yang diterima.")
