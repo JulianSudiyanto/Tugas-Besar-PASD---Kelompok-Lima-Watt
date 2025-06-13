@@ -13,14 +13,29 @@ FP adalah paradigma pemrograman yang berfokus pada penggunaan fungsi-fungsi murn
 
 ## Object-Oriented Program
 OOP adalah pemrograman yang berfokus pada penggunaan objek—struktur yang menggabungkan data dan fungsi yang berkaitan—untuk membangun program yang modular, terorganisir, dan mudah dipelihara.
+
 Prinsip OOP:
 1. Encapsulation (Enkapsulasi)
-   Membungkus data (atribut/properti) dan fungsi (metode) ke dalam satu kesatuan objek sehingga data hanya dapat diakses melalui metode yang sudah ditentukan.
-   Contoh:
-   class itemMenu:
-   def init(self, nama, harga):
-   self.nama = nama
-   self.__harga = harga # disembunyikan dari luar class
+   Enkapsulasi adalah proses menyatukan data (atribut) dan perilaku (fungsi/metode) ke dalam satu kesatuan objek, serta menyembunyikan data agar tidak bisa diakses langsung dari luar. Tujuannya
+   adalah untuk menjaga keamanan data dan membatasi akses langsung ke atribut.
+
+   |Contoh code dari enkapsulasi adalah:
+
+   |class itemMenu:
+
+   |def init(self, nama, harga):
+
+   |self.nama = nama
+
+   |self.__harga = harga # disembunyikan dari luar class
+
+
+   Kenapa kode itemMenu termasuk prinsip enkapsulasi?
+
+   Karena seluruh data penting seperti nama, jenis, harga, dan stok disimpan di dalam objek itemMenu, sehingga data tersebut tidak disebar bebas di luar class. Data ini hanya bisa diakses dan
+   dimodifikasi melalui metode resmi seperti tambahStok() dan kurangiStok(). Dengan begitu, pengguna tidak bisa sembarangan mengubah nilai stok langsung (misalnya item.stok -= 5), melainkan
+   harus mengikuti prosedur yang sudah disediakan oleh class. Selain itu, di dalam metode seperti kurangiStok(), terdapat proses validasi (pengecekan apakah stok mencukupi) sebelum data diubah
+   Hal ini menunjukkan bahwa akses terhadap data dikendalikan dan diamankan, yang merupakan inti dari prinsip enkapsulasi.
    
 Fungsi yang dipakai:
 1. class itemMenu: Mewakili sebuah item/menu yang dijual.
