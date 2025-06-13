@@ -365,7 +365,7 @@ def run_app(menu_restoran, df_menu_original):
 
 
 if __name__ == "__main__":
-    url_menu = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/Clean_Data_Restaurant_Final.csv'
+    url_menu = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/Cleaned_200_Price_Data.csv'
 
     menu_restoran, initial_df_menu = load_data(url_menu)
 
