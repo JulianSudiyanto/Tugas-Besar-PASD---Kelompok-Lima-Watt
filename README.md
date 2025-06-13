@@ -6,13 +6,27 @@ KasirKita merupakan aplikasi kasir digital yang dibangun menggunakan Python dan 
 
 ## Dataset
 1. Cleaned_200_Price_Data_Final.csv:
-   Dataset ini merupakan data dummy yang akan dijadikan data test, dengan informasi:
+   Dataset ini merupakan data dummy sebanyak 200 baris dan 8 kolom yang akan dijadikan data testing, dengan informasi yang akan digunakan:
    1. Item: Nama menu
    2. Category: Kategori menu (Makananan/Minuman)
    3. Price: Harga menu
-   4. 
-3. Clean_Data_Restaurant_Final.csv:
+   4. Quantity: Banyaknya item yang dipesan
+   5. Order Total: Harga total yang dibayar
+   6. Payment Method: Metode pembayaran yang dipilih oleh pelanggan
+      
+2. Clean_Data_Restaurant_Final.csv:
+   Dataset ini merupakan data yang digunakan untuk menganalisis apakah pelanggan tersebut churn atau tidak. Adapun atribut yang digunakan untuk menganalisis apakah seorang pelanggan churn atau tidak adalah:
+   1. Payment Method
+   2. Order Total
+   3. Quantity
+   4. Price
+   5. Item
+   6. Category
+   7. Churn(Status pelanggan menetap atau tidak)
 
+## Pelatihan dan Evaluasi
+Clean_Data_Restaurant_Final.csv dilatih dan dievaluasi menggunakan metode Random Forest.
+   
 ## Functional Program
 FP adalah paradigma pemrograman yang berfokus pada penggunaan fungsi-fungsi murni (pure functions), di mana data bersifat immutable (tidak diubah setelah dibuat) dan tidak ada efek samping (side effect).
 
@@ -21,19 +35,11 @@ Prinsip FP:
 2.  Immutability (Data Tidak Bisa Diubah) adalah prinsip di mana data tidak diubah setelah dibuat. Jika kamu ingin mengubah data, maka kamu harus membuat salinan/modifikasi baru, bukan mengubah nilai aslinya.
 3.  Higher-Order Function (Fungsi Tingkat Tinggi) function adalah fungsi yang menerima fungsi lain sebagai argumen, atau mengembalikan fungsi sebagai hasil. Ini memungkinkan kita untuk membuat logika yang lebih fleksibel dan reusable.
    
-
-Fungsi yang dipakai:
-1. hitung_total_pemesanan(daftar_item):
-   Menghitung total harga semua item dalam pemesanan.
-2. analisis_tren_item(data_penjualan):
-   Menentukan item yang paling banyak terjual dari data penjualan.
-
 ## Object-Oriented Program
 OOP adalah pemrograman yang berfokus pada penggunaan objek—struktur yang menggabungkan data dan fungsi yang berkaitan—untuk membangun program yang modular, terorganisir, dan mudah dipelihara.
 
 Prinsip OOP:
-1. Encapsulation (Enkapsulasi) adalah proses menyatukan data (atribut) dan perilaku (fungsi/metode) ke dalam satu kesatuan objek, serta menyembunyikan data agar tidak bisa diakses langsung dari luar. Tujuannya
-   adalah untuk menjaga keamanan data dan membatasi akses langsung ke atribut.
+1. Encapsulation (Enkapsulasi) adalah proses menyatukan data (atribut) dan perilaku (fungsi/metode) ke dalam satu kesatuan objek, serta menyembunyikan data agar tidak bisa diakses langsung dari luar. Tujuannya adalah untuk menjaga keamanan data dan membatasi akses langsung ke atribut.
 
 2. Inheritance (Pewarisan) adalah prinsip OOP yang memungkinkan sebuah class (anak/turunan) mewarisi atribut dan metode dari class lain (induk).
 3. Polymorphism (Polimorfisme) adalah prinsip OOP yang memungkinkan satu nama metode digunakan oleh banyak class, tapi perilakunya bisa berbeda tergantung objeknya.
