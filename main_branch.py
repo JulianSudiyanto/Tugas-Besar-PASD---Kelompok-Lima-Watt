@@ -248,13 +248,15 @@ def run_app(menu_restoran, df_menu_original):
         choice = input("Pilih opsi (1-8): ")
 
         if choice == '1':
-            print('\n====== DAFTAR MENU ======')
+            print('\n========================= DAFTAR MENU =========================')
+            print(f"| {'Nama':<20} | {'Kategori':<14} | {'Harga (Rp)':>11} | {'Stok':>4} |")
+            print(f"|{'-'*22}|{'-'*16}|{'-'*13}|{'-'*6}|")
             if not menu_restoran:
-                print("Menu Kosong")
+                print("| Menu Kosong                                               |")
             else:
-                for item_name, item_obj in menu_restoran.items():
-                    print(f"{item_obj.nama:<20} ({item_obj.jenis:<10}) - Rp{item_obj.harga:10,.2f} - Stok: {item_obj.stok:<5}")
-            print('='*80)
+                for nama, item in menu_restoran.items():
+                    print(f"| {item.nama:<20} | {item.jenis:<14} | {item.harga:11,.2f} | {item.stok:>4} |")
+            print('='*60)
         elif choice == '2':
             pesanan_sekarang = Pemesanan()
             print('\n--- Buat Pemesanan ---')
@@ -365,7 +367,7 @@ def run_app(menu_restoran, df_menu_original):
 
 
 if __name__ == "__main__":
-    url_menu = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/Cleaned_200_Price_Data.csv'
+    url_menu = 'https://raw.githubusercontent.com/JulianSudiyanto/Tugas-Besar-PASD---Kelompok-Lima-Watt/refs/heads/main/dataset/Cleaned_200_Price_Data.csv'
 
     menu_restoran, initial_df_menu = load_data(url_menu)
 
