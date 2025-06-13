@@ -11,9 +11,7 @@ Aplikasi Kasir Kita adalah program yang dirancang untuk membantu pelaku usaha da
    Menentukan item yang paling banyak terjual dari data penjualan.
 
 ## Object-Oriented Program
-1. class itemMenu:
-
-   Mewakili sebuah item/menu yang dijual.
+1. class itemMenu: Mewakili sebuah item/menu yang dijual.
 
    Atribut: nama, jenis, harga, ukuran, stok
 
@@ -21,9 +19,7 @@ Aplikasi Kasir Kita adalah program yang dirancang untuk membantu pelaku usaha da
    1. tambahStok(jumlah)
    2. kurangiStok(jumlah)
    
-3. class Pemesanan:
-
-   Mencatat item-item yang dipesan oleh pelanggan.
+3. class Pemesanan: Mencatat item-item yang dipesan oleh pelanggan.
 
    Atribut: daftar_item
 
@@ -32,9 +28,26 @@ Aplikasi Kasir Kita adalah program yang dirancang untuk membantu pelaku usaha da
    2. hitung_total()
    3. tampilkan_detail()
       
-5. class Pembayaran
-6. class ManajerStok
-7. class LaporanPenjualan
+5. class Pembayaran: Menangani proses pembayaran.
+
+   Atribut: metode
+
+   Metode:
+   1. proses_pembayaran(total)
+   2. cetak_struk(pemesanan)
+      
+7. class ManajerStok: Memperbarui stok barang setelah transaksi.
+
+   Metode:
+   1. update_stok_barang(pemesanan, nama_item, jumlah, operasi)
+      
+9. class LaporanPenjualan: Mencatat dan menampilkan laporan penjualan.
+
+    Atribut: data_penjualan
+
+   Metode:
+   1. catat_penjualan(pemesanan)
+   2. tampilkan_laporan()
 
 ## Fitur Utama
 1. Pencatatan Pemesanan: Menambahkan item ke pesanan dan menghitung total otomatis.
