@@ -25,12 +25,21 @@ st.write("Selamat datang di aplikasi KasirKita.")
 df = pd.read_csv(r"D:\PASD\Tugas-Besar-PASD---Kelompok-Lima-Watt\data_gabungan.csv")
 # Membaca CSV menjadi DataFrame
 
+# Functional Programming untuk menghitung persentase churn
+def churn_percentage(data, total):
+    return data * total / 100
+
+# Functional Programming untuk menghitung total pendapatan
+def total_pendapatan(df):
+    total = df['Order Total'].sum()
+    return total
+
 def laporan_penjualan(df):
     st.subheader("Laporan Penjualan")
     st.dataframe(df)
     # Total pendapatan
     if 'Order Total' in df.columns:
-        total = df['Order Total'].sum()
+        total = total_pendapatan(df)
         st.metric("Total Pendapatan", f"Rp {total:,.0f}")
     else:
         st.warning("Kolom 'Order Total' tidak ditemukan.")
@@ -41,8 +50,8 @@ def laporan_penjualan(df):
     total = len(prediction)
     churn_count = sum(prediction == 1)
     not_churn_count = sum(prediction == 0)
-    churn_percent = churn_count / total * 100
-    not_churn_percent = not_churn_count / total * 100
+    churn_percent = churn_percentage(churn_count, total)
+    not_churn_percent = churn_percentage(not_churn_count, total)
     # Tampilkan hasil
     st.write(f"Total data: {total}")
     st.write(f"Jumlah pelanggan **churn**: {churn_count} ({churn_percent:.1f}%)")
